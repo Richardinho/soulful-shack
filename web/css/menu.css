@@ -3,26 +3,49 @@
 	float : left;
 	padding : 12px;
 }
-
-.filters input[type=radio]{
-	margin : 6px;
-}
-
 .filters li {
- padding : 3px 0;
+	margin-bottom : 12px;
 }
-.filters li > input, .filters li > label {
+.filters h3 {
+	margin : 0;
+	font-weight : normal;
+	font-size : 16px;
+	margin-bottom : 12px;
+}
+.styled-radio-block {
+	margin-bottom : 6px;
+}
+.styled-radio-block > * {
 	vertical-align : middle;
 }
+.styled-radio-block .styled-radio {
+	background : white;
+	width : 20px;
+	height : 20px;
+	display : inline-block;
+	border : solid 2px grey;
+	border-radius : 2px;
+	position : relative;
+}
 
-.sort-by {
-	margin-bottom : 24px;
+.styled-radio-block input[type=radio] {
+	display : none;
 }
-.sort-by label {
-	display : block;
+
+.styled-radio-block input[type=radio]:checked ~ label.styled-radio:before {
+	content : 'x';
+	width : 100%;
+	height : 100%;
+	display : inline-block;
+	text-align : center;
 }
-.sort-by input[type=radio] {
-	margin : 6px;
+
+.star-rating-filters .styled-radio-block{
+	display : inline-block;
+}
+
+.range-filters > * {
+	vertical-align : middle;
 }
 
 button {

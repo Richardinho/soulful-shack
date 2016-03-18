@@ -1,26 +1,48 @@
 <h2>Filters</h2>
 <ul class='filters'>
-	<li>
-		<div>star ratings</div>
-		<label>1<input name='star-rating-filter' ng-change='refresh()' value='1' ng-model='filters.stars.val' type='radio'></label>
-		<label>2<input name='star-rating-filter' ng-change='refresh()' value='2' ng-model='filters.stars.val' type='radio'></label>
-		<label>3<input name='star-rating-filter' ng-change='refresh()' value='3' ng-model='filters.stars.val' type='radio'></label>
-		<label>4<input name='star-rating-filter' ng-change='refresh()' value='4' ng-model='filters.stars.val' type='radio'></label>
-		<label>5<input name='star-rating-filter' ng-change='refresh()' value='5' ng-model='filters.stars.val' type='radio'></label>
+	<li class='star-rating-filters'>
+		<h3>star ratings</h3>
+		<div class='sort-by'>
+			<div class='styled-radio-block'>
+				<input id='stars-filter-1' name='star-rating-filter' ng-change='refresh()' value='1' ng-model='filters.stars.val' type='radio'>
+				<label class='styled-radio' for='stars-filter-1'></label>
+				<label for='stars-filter-1'>1</label>
+			</div>
+			<div class='styled-radio-block'>
+				<input id='stars-filter-2' name='star-rating-filter' ng-change='refresh()' value='2' ng-model='filters.stars.val' type='radio'>
+				<label class='styled-radio' for='stars-filter-2'></label>
+				<label for='stars-filter-2'>2</label>
+			</div>
+			<div class='styled-radio-block'>
+				<input id='stars-filter-3' name='star-rating-filter' ng-change='refresh()' value='3' ng-model='filters.stars.val' type='radio'>
+				<label class='styled-radio' for='stars-filter-3'></label>
+				<label for='stars-filter-3'>3</label>
+			</div>
+			<div class='styled-radio-block'>
+				<input id='stars-filter-4' name='star-rating-filter' ng-change='refresh()' value='4' ng-model='filters.stars.val' type='radio'>
+				<label class='styled-radio' for='stars-filter-4'></label>
+				<label for='stars-filter-4'>4</label>
+			</div>
+			<div class='styled-radio-block'>
+				<input id='stars-filter-5' name='star-rating-filter' ng-change='refresh()' value='5' ng-model='filters.stars.val' type='radio'>
+				<label class='styled-radio' for='stars-filter-5'></label>
+				<label for='stars-filter-5'>5</label>
+			</div>
+		</div>
 	</li>
-	<li>
-		<label for='min-cost'>minimum cost</label>
+	<li class='range-filters'>
+		<label for='min-cost'>price</label>
 		<input id='min-cost'
 					 type='range'
 					 step='1'
 					 ng-change='refresh()'
 					 ng-model-options='{ debounce: 1000 }'
 					 min='0'
-					 max='5000'
+					 max='100'
 					 ng-model='filters.mincost.val'>
 		<label for='min-cost'>{{ filters.mincost.val }}</label>
 	</li>
-	<li>
+	<li class='range-filters'>
 		<label for='user-rating'>user rating</label>
 		<input id='user-rating'
 					 type='range'
@@ -36,8 +58,24 @@
 </ul>
 <h2>Sort by</h2>
 <div class='sort-by'>
-	<label><input type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="distance">distance</label>
-	<label><input type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="stars">stars</label>
-	<label><input type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="mincost">min cost</label>
-	<label><input type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="userrating">user rating</label>
+	<div class='styled-radio-block'>
+		<input id='distance-filter' type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="distance">
+		<label class='styled-radio' for='distance-filter'></label>
+		<label for='distance-filter'>distance</label>
+	</div>
+	<div class='styled-radio-block'>
+		<input id='stars-filter' type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="stars">
+		<label class='styled-radio' for='stars-filter'></label>
+		<label for='stars-filter'>stars</label>
+	</div>
+	<div class='styled-radio-block'>
+		<input id='price-filter' type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="mincost">
+		<label class='styled-radio' for='price-filter'></label>
+		<label for='price-filter'>min cost</label>
+	</div>
+	<div class='styled-radio-block'>
+		<input id='user-rating-filter' type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="userrating">
+		<label class='styled-radio' for='user-rating-filter'></label>
+		<label for='user-rating-filter'>user rating</label>
+	</div>
 </div>
