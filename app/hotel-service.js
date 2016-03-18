@@ -23,6 +23,8 @@ module.exports.getHotelSummaries = function (page, minCost, userRating, stars, s
 				"ThumbnailUrl" : item.ThumbnailUrl,
 				"Location" : item.Location,
 				"EstablishmentId" : item.EstablishmentId,
+				"label" : item.label,
+				"year" : item.year,
 				"minCost" : item.MinCost,
 				"userRating" : item.UserRating,
 				"Distance" : item.Distance,

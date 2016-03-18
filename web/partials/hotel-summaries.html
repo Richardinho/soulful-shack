@@ -10,7 +10,10 @@
 					<ul class='stars'>
 						<li ng-repeat='star in getStars(hotel.Stars)'></li>
 					</ul>
-					<div class='add-info'>catalog number : {{  hotel.catalogNumber }} | price : {{  hotel.minCost | currency : '£' }}
+					<div class='add-info'>catalog number : {{  hotel.catalogNumber }}
+						| price : {{  hotel.minCost | currency : '£' }}
+						| label : {{  hotel.label }}
+						| year : {{  hotel.year }}
 				</div>
 			</div>
 		</div>
