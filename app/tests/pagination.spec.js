@@ -19,7 +19,7 @@ describe('pagination', function () {
 					expect(paginationObj.first).toBe(1);
 					expect(paginationObj.last).toBe(4);
 					expect(paginationObj.prev).toBe(false);
-					expect(paginationObj.next).toBe(false);
+					expect(paginationObj.next).toBe(true);
 				});
 			});
 			/*
@@ -32,7 +32,21 @@ describe('pagination', function () {
 					var paginationObj = pagination._createPaginationObject(3, visibleLinksNumber, maxPageLinks);
 					expect(paginationObj.first).toBe(1);
 					expect(paginationObj.last).toBe(4);
-					expect(paginationObj.prev).toBe(false);
+					expect(paginationObj.prev).toBe(true);
+					expect(paginationObj.next).toBe(true);
+				});
+			});
+			/*
+				on page 4
+				1 2 3 4
+						  ^
+			*/
+			describe('when on page 4', function () {
+				it('should create page object', function () {
+					var paginationObj = pagination._createPaginationObject(4, visibleLinksNumber, maxPageLinks);
+					expect(paginationObj.first).toBe(1);
+					expect(paginationObj.last).toBe(4);
+					expect(paginationObj.prev).toBe(true);
 					expect(paginationObj.next).toBe(false);
 				});
 			});
@@ -64,7 +78,7 @@ describe('pagination', function () {
 					var paginationObj = pagination._createPaginationObject(2, visibleLinksNumber, pageLinksNumber);
 					expect(paginationObj.first).toBe(1);
 					expect(paginationObj.last).toBe(5);
-					expect(paginationObj.prev).toBe(false);
+					expect(paginationObj.prev).toBe(true);
 					expect(paginationObj.next).toBe(true);
 				});
 			});
@@ -78,7 +92,7 @@ describe('pagination', function () {
 					var paginationObj = pagination._createPaginationObject(3, visibleLinksNumber, pageLinksNumber);
 					expect(paginationObj.first).toBe(1);
 					expect(paginationObj.last).toBe(5);
-					expect(paginationObj.prev).toBe(false);
+					expect(paginationObj.prev).toBe(true);
 					expect(paginationObj.next).toBe(true);
 				});
 			});
@@ -152,7 +166,7 @@ describe('pagination', function () {
 					expect(paginationObj.first).toBe(16);
 					expect(paginationObj.last).toBe(20);
 					expect(paginationObj.prev).toBe(true);
-					expect(paginationObj.next).toBe(false);
+					expect(paginationObj.next).toBe(true);
 				});
 			});
 			/*
@@ -167,7 +181,7 @@ describe('pagination', function () {
 					expect(paginationObj.first).toBe(16);
 					expect(paginationObj.last).toBe(20);
 					expect(paginationObj.prev).toBe(true);
-					expect(paginationObj.next).toBe(false);
+					expect(paginationObj.next).toBe(true);
 				});
 			});
 			/*
@@ -203,7 +217,7 @@ describe('pagination', function () {
   					expect(paginationObj.first).toBe(1);
   					expect(paginationObj.last).toBe(4);
   					expect(paginationObj.prev).toBe(false);
-  					expect(paginationObj.next).toBe(false);
+  					expect(paginationObj.next).toBe(true);
   				});
   			});
   			/*
@@ -216,8 +230,8 @@ describe('pagination', function () {
   					var paginationObj = pagination._createPaginationObject(3, visibleLinksNumber, pageLinksNumber);
   					expect(paginationObj.first).toBe(1);
   					expect(paginationObj.last).toBe(4);
-  					expect(paginationObj.prev).toBe(false);
-  					expect(paginationObj.next).toBe(false);
+  					expect(paginationObj.prev).toBe(true);
+  					expect(paginationObj.next).toBe(true);
   				});
   			});
   		});
@@ -248,7 +262,7 @@ describe('pagination', function () {
 					var paginationObj = pagination._createPaginationObject(2, visibleLinksNumber, pageLinksNumber);
 					expect(paginationObj.first).toBe(1);
 					expect(paginationObj.last).toBe(6);
-					expect(paginationObj.prev).toBe(false);
+					expect(paginationObj.prev).toBe(true);
 					expect(paginationObj.next).toBe(true);
 				});
 			});
@@ -262,7 +276,7 @@ describe('pagination', function () {
 					var paginationObj = pagination._createPaginationObject(3, visibleLinksNumber, pageLinksNumber);
 					expect(paginationObj.first).toBe(1);
 					expect(paginationObj.last).toBe(6);
-					expect(paginationObj.prev).toBe(false);
+					expect(paginationObj.prev).toBe(true);
 					expect(paginationObj.next).toBe(true);
 				});
 			});
@@ -321,7 +335,7 @@ describe('pagination', function () {
 					expect(paginationObj.first).toBe(15);
 					expect(paginationObj.last).toBe(20);
 					expect(paginationObj.prev).toBe(true);
-					expect(paginationObj.next).toBe(false);
+					expect(paginationObj.next).toBe(true);
 				});
 			});
 			/*
@@ -336,7 +350,7 @@ describe('pagination', function () {
 					expect(paginationObj.first).toBe(15);
 					expect(paginationObj.last).toBe(20);
 					expect(paginationObj.prev).toBe(true);
-					expect(paginationObj.next).toBe(false);
+					expect(paginationObj.next).toBe(true);
 				});
 			});
 			/*
@@ -351,7 +365,7 @@ describe('pagination', function () {
 					expect(paginationObj.first).toBe(15);
 					expect(paginationObj.last).toBe(20);
 					expect(paginationObj.prev).toBe(true);
-					expect(paginationObj.next).toBe(false);
+					expect(paginationObj.next).toBe(true);
 				});
 			});
 			/*

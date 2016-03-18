@@ -1,6 +1,6 @@
 var fs = require('fs');
 var _ = require('underscore');
-var filename = './app/data/hotels.json';
+var filename = './app/data/stub-data.json';
 
 var sortingStrategy = require('./sorting-strategy');
 var config = require('./config');
@@ -25,7 +25,9 @@ module.exports.getHotelSummaries = function (page, minCost, userRating, stars, s
 				"EstablishmentId" : item.EstablishmentId,
 				"minCost" : item.MinCost,
 				"userRating" : item.UserRating,
-				"Distance" : item.Distance
+				"Distance" : item.Distance,
+				"catalogNumber" : item.catalogNumber,
+				"artist" : item.artist
 			};
 		});
 

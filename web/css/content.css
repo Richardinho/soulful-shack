@@ -2,12 +2,7 @@
 	width : calc(100% - 300px);
 	float : left;
 }
-.content-header {
-	padding : 6px;
-	background : red;
-	color : white;
-	margin : 0;
-}
+
 
 .hotel-summary {
 	padding : 6px;
@@ -33,4 +28,9 @@
 
 .add-info {
 	font-size : 12px;
+}
+
+.img img {
+	width : 80px;
+	height : 80px;
 }

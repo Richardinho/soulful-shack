@@ -40,7 +40,7 @@
 						*/
 						var refinements =  {
 							page       : $stateParams.page || 1,
-							mincost    : $stateParams.mincost || 39,
+							mincost    : $stateParams.mincost || 5,
 							stars      : $stateParams.stars || 4,
 							userrating : $stateParams.userrating || 3,
 							sortby     : $stateParams.sortby || 'distance'

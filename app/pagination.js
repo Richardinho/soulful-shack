@@ -3,22 +3,22 @@ function createPaginationObject (totalResults, currentPage, visiblePageLinks) {
 	return _createPaginationObject(currentPage, visiblePageLinks, totalPageLinks);
 }
 
-function _createPaginationObject (currentPage, visiblePageLinks, maxPageLinks){
+function _createPaginationObject (currentPage, visiblePageLinks, totalPageLinks){
 
 	var prev, next, first, last;
 
 	currentPage = parseInt(currentPage, 10);
 	visiblePageLinks = parseInt(visiblePageLinks, 10);
-	maxPageLinks = parseInt(maxPageLinks, 10);
-	if(maxPageLinks < visiblePageLinks) {
-
+	totalPageLinks = parseInt(totalPageLinks, 10);
+	if(totalPageLinks < visiblePageLinks) {
+		next = !!(last < totalPageLinks);
 		return  {
 			current : currentPage,
-			prev : false,
-			next : false,
+			prev : currentPage != 1,
+			next : currentPage != totalPageLinks,
 			first : 1,
-			last : maxPageLinks,
-			totalPages : maxPageLinks
+			last : totalPageLinks,
+			totalPages : totalPageLinks
 		};
 	}
 
@@ -28,8 +28,8 @@ function _createPaginationObject (currentPage, visiblePageLinks, maxPageLinks){
 		if(currentPage > offset) {
 			first = currentPage - offset;
 			last = currentPage + offset;
-			if(last > maxPageLinks) {
-				last = maxPageLinks;
+			if(last > totalPageLinks) {
+				last = totalPageLinks;
 				first = last - visiblePageLinks + 1;
 			}
 		} else {
@@ -43,8 +43,8 @@ function _createPaginationObject (currentPage, visiblePageLinks, maxPageLinks){
 		if(currentPage > leftOffset) {
 			first = currentPage - leftOffset;
 			last = currentPage + rightOffset;
-			if(last > maxPageLinks) {
-				last = maxPageLinks;
+			if(last > totalPageLinks) {
+				last = totalPageLinks;
 				first = last - visiblePageLinks + 1;
 			}
 		} else {
@@ -53,8 +53,8 @@ function _createPaginationObject (currentPage, visiblePageLinks, maxPageLinks){
 		}
 	}
 
-	prev = !!(first !== 1);
-	next = !!(last < maxPageLinks);
+	prev = !!(currentPage !== 1);
+	next = !!(currentPage !== totalPageLinks);
 
 	var paginationObj= {
 		current : currentPage,
@@ -62,7 +62,7 @@ function _createPaginationObject (currentPage, visiblePageLinks, maxPageLinks){
 		next : next,
 		first : first,
 		last : last,
-		totalPages : maxPageLinks
+		totalPages : totalPageLinks
 	};
 
 	return paginationObj;

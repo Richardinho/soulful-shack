@@ -1,4 +1,3 @@
-<h2 class='content-header'>Hotels</h2>
 <ul class='hotels-summary-list'>
 	<li ng-repeat='hotel in hotels'>
 		<div class="media hotel-summary">
@@ -6,12 +5,12 @@
 				<img ng-src='{{hotel.ThumbnailUrl}}' alt='{{  hotel.Name }}'>
 			</a>
 			<div class="bd">
-				<h3><a ui-sref='hotelDetail({ id : hotel.EstablishmentId })'>{{  hotel.Name }}, {{ hotel.Location }}</a></h3>
+				<h3><a ui-sref='hotelDetail({ id : hotel.EstablishmentId })'>{{  hotel.Name }}, {{ hotel.artist }}</a></h3>
 				<div class='rating'>
 					<ul class='stars'>
 						<li ng-repeat='star in getStars(hotel.Stars)'></li>
 					</ul>
-					<div class='add-info'>Distance : {{ hotel.Distance.toFixed(2) }} , User rating : {{  hotel.userRating }}, MinCost : {{  hotel.minCost | currency : '£' }}
+					<div class='add-info'>catalog number : {{  hotel.catalogNumber }} | price : {{  hotel.minCost | currency : '£' }}
 				</div>
 			</div>
 		</div>
