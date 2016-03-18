@@ -1,0 +1,20 @@
+.hotel-detail {
+	padding : 12px;
+	background : white;
+	border-top : solid 1px black;
+	background-color : blanchedalmond;
+}
+
+.hotel-detail .info {
+	line-height : 1.5;
+}
+
+.hotel-detail .big-image {
+	float : right;
+	border : solid 1px black;
+}
+
+.hotel-detail button {
+	margin-top : 24px;
+	margin-bottom 24px;
+}

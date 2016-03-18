@@ -1,0 +1,6 @@
+<div class='pagination'>
+	<ul class='pagination'>
+		<li ng-class='{disabled : !page.enabled}' ng-click='changePage(page.text, page.enabled)' ng-repeat='page in pagination'>{{  page.text }}</li>
+	</ul>
+	<div class='pagination-metadata'>page {{ currentPage }} of {{ totalPages }}</div>
+</div>

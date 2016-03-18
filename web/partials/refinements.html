@@ -1,0 +1,43 @@
+<h2>Filters</h2>
+<ul class='filters'>
+	<li>
+		<div>star ratings</div>
+		<label>1<input name='star-rating-filter' ng-change='refresh()' value='1' ng-model='filters.stars.val' type='radio'></label>
+		<label>2<input name='star-rating-filter' ng-change='refresh()' value='2' ng-model='filters.stars.val' type='radio'></label>
+		<label>3<input name='star-rating-filter' ng-change='refresh()' value='3' ng-model='filters.stars.val' type='radio'></label>
+		<label>4<input name='star-rating-filter' ng-change='refresh()' value='4' ng-model='filters.stars.val' type='radio'></label>
+		<label>5<input name='star-rating-filter' ng-change='refresh()' value='5' ng-model='filters.stars.val' type='radio'></label>
+	</li>
+	<li>
+		<label for='min-cost'>minimum cost</label>
+		<input id='min-cost'
+					 type='range'
+					 step='1'
+					 ng-change='refresh()'
+					 ng-model-options='{ debounce: 1000 }'
+					 min='0'
+					 max='5000'
+					 ng-model='filters.mincost.val'>
+		<label for='min-cost'>{{ filters.mincost.val }}</label>
+	</li>
+	<li>
+		<label for='user-rating'>user rating</label>
+		<input id='user-rating'
+					 type='range'
+					 ng-change='refresh()'
+					 ng-model-options='{ debounce: 1000 }'
+					 step='1'
+					 min='0'
+					 max='10'
+					 ng-model='filters.userrating.val'>
+		<label for='user-rating'>{{  filters.userrating.val  }}</label>
+	</li>
+
+</ul>
+<h2>Sort by</h2>
+<div class='sort-by'>
+	<label><input type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="distance">distance</label>
+	<label><input type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="stars">stars</label>
+	<label><input type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="mincost">min cost</label>
+	<label><input type="radio" name="sort" ng-model='filters.sortby' ng-change='refresh()' value="userrating">user rating</label>
+</div>

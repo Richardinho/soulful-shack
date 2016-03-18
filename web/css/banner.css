@@ -1,0 +1,13 @@
+.banner {
+	padding : 20px 12px;
+}
+
+.banner .logo {
+	background-image : url(../images/tr-logo.svg);
+	background-size : contain;
+	background-repeat : no-repeat;
+	height : 50px;
+	width : 350px;
+	display : inline-block;
+	vertical-align : middle;
+}

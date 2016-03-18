@@ -1,0 +1,58 @@
+/* box sizing border box */
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+/* image replacement */
+.image-replacement{
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/* clearfix */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+
+/* media object */
+.media {
+}
+.media, .bd {
+	overflow:hidden;
+	_overflow:visible;
+	zoom:1;
+}
+.media .img {
+	float:left;
+	margin-right: 10px;
+}
+.media .img img{
+	display:block;
+}
+.media .imgExt{
+	float:right;
+	margin-left: 10px;
+}
+
+/* reset lists */
+ul {
+	margin : 0;
+	padding : 0;
+}
+li {
+	list-style-type : none;
+}

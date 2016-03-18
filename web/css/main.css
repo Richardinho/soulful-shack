@@ -1,0 +1,13 @@
+
+.container {
+	width : 900px;
+	margin : auto;
+	border : solid 1px red;
+}
+
+.main {
+	overflow : hidden;
+	background : orange;
+}
+
+

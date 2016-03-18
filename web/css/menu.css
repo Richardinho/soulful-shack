@@ -1,0 +1,30 @@
+.menu {
+	width : 300px;
+	float : left;
+	padding : 12px;
+}
+
+.filters input[type=radio]{
+	margin : 6px;
+}
+
+.filters li {
+ padding : 3px 0;
+}
+.filters li > input, .filters li > label {
+	vertical-align : middle;
+}
+
+.sort-by {
+	margin-bottom : 24px;
+}
+.sort-by label {
+	display : block;
+}
+.sort-by input[type=radio] {
+	margin : 6px;
+}
+
+button {
+	padding : 6px 12px;
+}

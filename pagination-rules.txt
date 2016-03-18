@@ -1,0 +1,54 @@
+should show but disable link to current page
+
+should show a maximum number of page links at a time.
+
+if there are less or equal links than the maximum
+	always show all links
+
+if there are more links than the maximum
+	show the maximum number of links
+	always show link to first and last pages
+
+	When max links is 5
+
+	Only 5 links
+	1 2 3 4 5
+
+	multiple links
+
+	on page 1
+	1 2 3 4 5 next
+	^
+	on page 2
+	1 2 3 4 5 next
+		^
+	on page 3
+	1 2 3 4 5 next
+			^
+	on page 4
+	prev 2 3 4 5 6 next
+			     ^
+	on page 15
+	prev 13 14 15 16 17 next
+	           ^
+  on page 17
+  prev 15 16 17 18 19 next
+             ^
+  on page 18
+  prev 16 17 18 19 20 next
+             ^
+	on page 19
+  prev 16 17 18 19 20 next
+	              ^
+	on last page
+	prev 16 17 18 19 20
+									 ^
+
+	//  object to generate
+	var pagination = {
+		prev : true/false,
+		next : true/false,
+		first : 23,
+		last : 27,
+		current : 25
+	}

@@ -1,0 +1,36 @@
+.content {
+	width : calc(100% - 300px);
+	float : left;
+}
+.content-header {
+	padding : 6px;
+	background : red;
+	color : white;
+	margin : 0;
+}
+
+.hotel-summary {
+	padding : 6px;
+	border-bottom : solid 1px lightblue;
+	background : white;
+}
+.hotel-summary h3 {
+	margin : 0;
+}
+.hotel-summary h3 a {
+	display : inline-block;
+	padding : 6px 0 ;
+}
+
+.stars li {
+	display : inline-block;
+	width : 20px;
+	height : 20px;
+	background-image : url(/images/star.svg);
+	background-size : cover;
+	background-repeat : no-repeat;
+}
+
+.add-info {
+	font-size : 12px;
+}
