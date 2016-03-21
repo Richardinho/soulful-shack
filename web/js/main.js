@@ -13,6 +13,10 @@
 		$urlRouterProvider.otherwise('/hotels/summaries');
 
 		$stateProvider
+			.state('signin', {
+				url : '/sign-in',
+				templateUrl : 'partials/sign-in.html'
+			})
 			.state('hotelDetail', {
 				url : '/hotel/:id',
 				resolve : {
