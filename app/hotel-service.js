@@ -21,8 +21,7 @@ module.exports.getHotelSummaries = function (page, minCost, userRating, stars, s
 				"Name" : item.Name,
 				"Stars" : item.Stars,
 				"ThumbnailUrl" : item.ThumbnailUrl,
-				"Location" : item.Location,
-				"EstablishmentId" : item.EstablishmentId,
+				"id" : item.id,
 				"label" : item.label,
 				"year" : item.year,
 				"minCost" : item.MinCost,
@@ -46,12 +45,12 @@ module.exports.getHotelSummaries = function (page, minCost, userRating, stars, s
 
 module.exports.getHotel = function (id) {
 	return getHotelData().then(function(data){
-		var hotel = _.find(data.Establishments, function(hotel) {
-			return hotel.EstablishmentId == id;
+		var record = _.find(data.Establishments, function(record) {
+			return record.id == id;
 		});
-		if(hotel) return hotel;
+		if(record) return record;
 		throw {
-			message : 'hotel does not exist'
+			message : 'record does not exist'
 		};
 	});
 }

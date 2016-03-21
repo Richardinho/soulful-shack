@@ -1,19 +1,19 @@
 <ul class='hotels-summary-list'>
-	<li ng-repeat='hotel in hotels'>
+	<li ng-repeat='record in hotels'>
 		<div class="media hotel-summary">
-			<a ui-sref='hotelDetail({ id : hotel.EstablishmentId })' class="img">
-				<img ng-src='{{hotel.ThumbnailUrl}}' alt='{{  hotel.Name }}'>
+			<a ui-sref='hotelDetail({ id : record.id })' class="img">
+				<img ng-src='{{record.ThumbnailUrl}}' alt='{{  record.Name }}'>
 			</a>
 			<div class="bd">
-				<h3><a ui-sref='hotelDetail({ id : hotel.EstablishmentId })'>{{  hotel.Name }}, {{ hotel.artist }}</a></h3>
+				<h3><a ui-sref='hotelDetail({ id : record.id })'>{{  record.Name }}, {{ record.artist }}</a></h3>
 				<div class='rating'>
 					<ul class='stars'>
-						<li ng-repeat='star in getStars(hotel.Stars)'></li>
+						<li ng-repeat='star in getStars(record.Stars)'></li>
 					</ul>
-					<div class='add-info'>catalog number : {{  hotel.catalogNumber }}
-						| price : {{  hotel.minCost | currency : '£' }}
-						| label : {{  hotel.label }}
-						| year : {{  hotel.year }}
+					<div class='add-info'>catalog number : {{  record.catalogNumber }}
+						| price : {{  record.minCost | currency : '£' }}
+						| label : {{  record.label }}
+						| year : {{  record.year }}
 				</div>
 			</div>
 		</div>
