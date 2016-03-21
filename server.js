@@ -2,7 +2,7 @@ var express = require('express');
 var hotelService = require('./app/hotel-service');
 
 var app = express();
-var port = 5600;
+var port = process.env.PORT || 5000;
 
 app.use(express.static('./web'));
 
