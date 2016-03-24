@@ -1,0 +1,107 @@
+native router
+
+///////////
+1.Injectable ?
+	***native router***
+	-yes
+
+	angular.module('app', ['ngComponentRouter'])
+	***ui router***
+	-yes
+
+	angular.module('app', ['ui.router']);
+
+
+2.HTML5 mode (clean urls) ?
+	***native router***
+	-yes
+
+	.config(function($locationProvider) {
+	  $locationProvider.html5Mode(true);
+	})
+
+	***ui router***
+
+	Yes.
+
+3. getting data into view
+
+	***native router***
+	Bind an event handler callback to this.$routerOnActivate within a controller. This is a good place to make calls to
+	the server for data.
+
+	***ui router***
+	'resolve' is a hashmap of dependencies providing data that can be injected into the controller.
+	Each dependency can return a promise which is resolved and the resolved object is passed to the controller.
+
+	Also a somewhat similar 'data' object can also be set in the state configuration object which can be accessed on the
+	$state object passed to the controller.
+
+	/// The ui router solution is more complicated and perhaps more flexible as a result, though
+	the native router seems sufficient for most use cases.
+
+	The UI Router also has an onEnter callback which seems similar to Native's $routerOnActivate.
+
+4. Native router is component based; ui router is state based.
+	What's the difference other than a term?
+
+	A state and a component are fairly similar: the config objects used to create a component and a state respectively
+	share some similar properties: e.g. template and controller. UI adds to these properties such as templateUrl and controller
+	Provider which simply give greater control over creation of the object.
+
+	Native and UI both allow nested views although in different ways.
+
+	UI allows states to inherit from a parent state. This allows common functionality shared by multiple child states to be
+	centralised in one parent state.  A child state inherits its parent url and resolved dependencies. When its view
+	is instantiated, it is inserted into its parent template.
+
+	Native defines its children in the $RouteConfig property. In here, paths are linked to components
+	and the views that these instantiate are inserted into the parent template.
+
+5. Accessing router parameters
+	***native router***
+
+	accessible on the next object passed to the $routerOnActivate
+	this.$routerOnActivate = function(next, previous) {
+    var id = next.params.id;
+
+  };
+
+  ***ui router***
+
+  found on $stateParams object. This is passed into the templateUrl and templateProvider functions and
+  can also be injected into resolve functions.
+
+  Question: in UI, parameters can be used to select a template. Can the same be done in Native?
+
+6. Configuration
+	***native router***
+	using component() helper method. pass component name and config object.
+	list of config properties:
+		template
+		templateUrl
+		controller
+		$routeConfig
+		bindings
+		$canActivate
+
+		//  note: could not find documentation on exactly what properties are available.
+  ***ui router***
+  use $stateProvider.state() and pass state name and config object to this. This should be done within
+  the config() callback of the application module.
+
+  config properties:
+    url
+    template
+    templateUrl
+    templateProvider
+    controller
+    controllerAs
+    controllerProvider
+    resolve
+    data // by convention - it can be called anything but should avoid name clashes
+    views
+    onEnter
+    onExit
+    parent
+    abstract

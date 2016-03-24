@@ -8,17 +8,28 @@
 	vertical-align : middle;
 	text-decoration : none;
 }
+
 .banner .logo h1 {
 	font-family : Bangers;
 	margin : 0;
 	font-size : 3em;
 }
+
 .the {
 	color : orange;
 }
+
 .soulful {
 	color : red;
 }
+
 .shack {
 	color : brown;
+}
+
+.banner-links {
+	background : black;
+	color : white;
+	padding : 12px;
+	text-align : right;
 }

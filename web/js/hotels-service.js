@@ -20,4 +20,4 @@
 			getDetail : getDetail
 		};
 	}]);
-}(angular.module('hotels'));
+}(angular.module('soulful-shack'));

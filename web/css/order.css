@@ -1,0 +1,30 @@
+.order {
+	padding : 12px;
+}
+
+.order-list {
+	margin-bottom : 12px;
+}
+
+.order-item {
+	display : block;
+}
+
+.order-item  img {
+	float : left;
+	margin-right : 12px;
+}
+
+.order-item  .order-info {
+	border : solid 1px black;
+	float : left;
+	width : 60%;
+	padding : 12px;
+}
+
+.order-item  .order-price {
+	font-size : 30px;
+	font-weight : bold;
+	margin-bottom : 12px;
+}
+

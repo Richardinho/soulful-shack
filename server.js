@@ -17,7 +17,7 @@ app.get('/api/hotels/:page/:minCost/:userRating/:stars/:sortby', function (reque
 		}, function (error) {
 				console.log(error);
 				response.send([{
-					"EstablishmentId" : "-1"
+					"id" : "-1"
 				}]);
 			});
 		});
@@ -31,6 +31,10 @@ app.get('/api/hotel/:id', function (request, response) {
 			success : 'false'
 		});
 	});
+});
+
+app.get('*', function (request, response) {
+	response.sendFile(__dirname + '/web/index.html');
 });
 
 app.listen(port, function () {

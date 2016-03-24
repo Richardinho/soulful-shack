@@ -1,0 +1,14 @@
+
+<div class='order clearfix'>
+	<h2>Your order</h2>
+	<ul class='order-list'>
+		<li class='order-item clearfix' ng-repeat='record in products'>
+		<h3>{{ record.artist }} {{ record.Name }}</h3>
+		<img class='big-image' ng-src='{{ record.ImageUrl}}' alt='{{ record.Name}}'>
+		<div class='order-info'>
+			<div class='order-price'>{{ record.MinCost | currency : '£' }}</div>
+		</div>
+		</li>
+	</ul>
+	<button class='cta' ui-sref='confirmation()'>confirm</button>
+</div>

@@ -32,9 +32,7 @@ html {
 .media {
 }
 .media, .bd {
-	overflow:hidden;
-	_overflow:visible;
-	zoom:1;
+	overflow : hidden;
 }
 .media .img {
 	float:left;
@@ -56,3 +54,4 @@ ul {
 li {
 	list-style-type : none;
 }
+

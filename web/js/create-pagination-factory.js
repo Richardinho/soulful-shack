@@ -2,7 +2,7 @@
 
 	'use strict';
 
-	angular.module('hotels').factory('createPaginationLinks', [function () {
+	angular.module('soulful-shack').factory('createPaginationLinks', [function () {
 		return function (paginationData) {
 				var totalPages = paginationData.totalPages;
 				var prev = paginationData.prev;

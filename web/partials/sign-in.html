@@ -1,4 +1,16 @@
-<label for='name'>name:</label>
-<input id='name' type='text' name='name'>
-<label for='name'>password</label>
-<input id='password' type='password' name='password'>
+<div class='sign-in-page'>
+	<h2>Sign in</h2>
+	<div class='input-fields'>
+		<label for='name'>name</label>
+		<input id='name' type='text' name='name' ng-model='user.name'>
+	</div>
+	<div class='input-fields'>
+		<label for='name'>password</label>
+		<input id='password' type='password' name='password' ng-model='user.password'>
+	</div>
+	<button ng-click='signin()'>sign in</button>
+	<div class='password-recovery-links'>
+		<a href='#'>not registered?</a>
+		<a href='#'>forgotten login details?</a>
+	</div>
+</div>

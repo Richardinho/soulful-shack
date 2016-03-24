@@ -1,0 +1,21 @@
+button {
+	border : none;
+	padding : 6px 12px;
+	text-transform : uppercase;
+	border-radius : 5px;
+	background : deepskyblue;
+	color : white;
+}
+
+button:hover {
+	background : cornflowerblue;
+}
+
+button.cta {
+	background : limegreen;
+	color : white;
+}
+
+button.cta:hover {
+	background : forestgreen;
+}

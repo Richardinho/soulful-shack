@@ -3,25 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name='viewport' content='width=device-width,initial-scale=1.0'>
-	<title>The Soulful Shack</title>
-	<link href='css/normalize.css' rel='stylesheet'>
-	<link href='css/utils.css' rel='stylesheet'>
-	<link href='css/main.css' rel='stylesheet'>
-	<link href='css/sign-in.css' rel='stylesheet'>
-	<link href='css/banner.css' rel='stylesheet'>
-	<link href='css/menu.css' rel='stylesheet'>
-	<link href='css/content.css' rel='stylesheet'>
-	<link href='css/hotel-detail.css' rel='stylesheet'>
-	<link href='css/pagination.css' rel='stylesheet'>
-	<link href='css/footer.css' rel='stylesheet'>
-	<script src='js/lib/angular.js'></script>
-	<script src='js/lib/angular-ui-router.js'></script>
+	<title>The Soulful Shack UI Router</title>
+	<link href='/css/normalize.css' rel='stylesheet'>
+	<link href='/css/utils.css' rel='stylesheet'>
+	<link href='/css/main.css' rel='stylesheet'>
+	<link href='/css/sign-in.css' rel='stylesheet'>
+	<link href='/css/banner.css' rel='stylesheet'>
+	<link href='/css/menu.css' rel='stylesheet'>
+	<link href='/css/content.css' rel='stylesheet'>
+	<link href='/css/hotel-detail.css' rel='stylesheet'>
+	<link href='/css/order.css' rel='stylesheet'>
+	<link href='/css/pagination.css' rel='stylesheet'>
+	<link href='/css/footer.css' rel='stylesheet'>
+	<link href='/css/animate.css' rel='stylesheet'>
+	<link href='/css/button.css' rel='stylesheet'>
+	<script src='/js/lib/angular.js'></script>
+	<script src='/js/lib/angular-ui-router.js'></script>
+	<script src='/js/lib/angular-animate.js'></script>
 	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-
+	<base href="/">
 </head>
-<body ng-app='hotels'>
+<body ng-app='soulful-shack'>
 	<div class='container'>
-		<div ui-sref='signin' class='sign-in'>sign in</div>
+		<div class='banner-links'>
+			<span ui-sref='signin' class='sign-in-link'>sign in</span>
+			<span                  class='checkout-link'>check out</span>
+		</div>
 		<div class='banner'>
 			<a href='/' class='logo'>
 				<h1>
@@ -31,12 +38,14 @@
 				</h1>
 			</a>
 		</div>
-		<div class='main clearfix' ui-view></div>
+		<div class='main clearfix' ui-view ></div>
 		<div class='footer'>&copy;richard hunter 2016</div>
 	</div>
 	<script src='js/main.js'></script>
 	<script src='js/create-refinements-factory.js'></script>
 	<script src='js/create-pagination-factory.js'></script>
 	<script src='js/hotels-service.js'></script>
+	<script src='js/user-service.js'></script>
+	<script src='js/cart-service.js'></script>
 </body>
 </html>

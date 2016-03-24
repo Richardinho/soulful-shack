@@ -10,7 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.4",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "@angular/router": "^0.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.8"
+  }
 }

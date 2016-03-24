@@ -2,11 +2,15 @@
 
 	'use strict';
 
-	var app = angular.module('hotels', ['ui.router']);
+	var app = angular.module('soulful-shack', ['ui.router']);
 
 	var ratings = [
 		[],[{}],[{},{}],[{},{},{}],[{},{},{},{}],[{},{},{},{},{}]
 	];
+
+	app.config(function($locationProvider) {
+    $locationProvider.html5Mode(true);
+  })
 
 	app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 		// default path
@@ -15,7 +19,24 @@
 		$stateProvider
 			.state('signin', {
 				url : '/sign-in',
-				templateUrl : 'partials/sign-in.html'
+				templateUrl : 'partials/sign-in.html',
+				controller : ['$scope', '$state', 'userService','cartService', function ($scope, $state, userService, cartService ) {
+					$scope.user = {};
+					$scope.signin = function () {
+						var username = $scope.user.name;
+						var password = $scope.user.password;
+						userService.signIn(username, password).then(function (user) {
+							if(user.signedIn) {
+								cartService.writeAnonymousCartItemsToUserCart();
+								$state.go('order');
+							} else {
+								console.log('you are not registered in our database')
+							}
+						}, function () {
+							console.log('an error occurred');
+						});
+					}
+				}]
 			})
 			.state('hotelDetail', {
 				url : '/hotel/:id',
@@ -25,12 +46,68 @@
 					}]
 				},
 				templateUrl : 'partials/hotel-detail.html',
-				controller : ['$scope', 'hotelDetail', '$window', function ($scope, hotelDetail, $window){
+				controller : [
+					'$scope',
+					'$state',
+					'hotelDetail',
+					'userService',
+					'cartService',
+					'$window', function (
+						$scope,
+						$state,
+						hotelDetail,
+						userService,
+						cartService,
+						$window){
+
 					$scope.hotel = hotelDetail.data;
 					$scope.goBack = function () {
 						$window.history.back();
 					};
+					$scope.purchase = function(id) {
+
+						userService.getUser().then(function (user) {
+							if(user.signedIn){
+								cartService.addItemToUserCart($scope.hotel);
+								$state.go('order');
+							} else {
+								cartService.addItemToAnonymousCart($scope.hotel);
+								$state.go('signin');
+							}
+						}, function (error) {
+							console.log('error handling', error);
+						})
+
+					}
 				}]
+			})
+
+			.state('order', {
+				url : '/order',
+				templateUrl : 'partials/order.html',
+				resolve : {
+					cart: ['$stateParams', 'hotelsService', 'cartService', function ($stateParams, recordsService, cartService){
+						var cart = cartService.getUserCart();
+						if(cart) {
+							return cart;
+						} else {
+							console.log('you do not have an order')
+							return {};
+						}
+
+					}]
+				},
+				controller : function ($scope, cart) {
+					$scope.products= cart.products || [];
+				}
+			})
+
+			.state('confirmation', {
+				url : '/confirmation/:id',
+				templateUrl : 'partials/confirmation.html',
+				controller : function ($scope, cartService) {
+					cartService.deleteUserCart();
+				}
 			})
 
 			.state('hotels', {
