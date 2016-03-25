@@ -12,7 +12,7 @@
 
 .banner-links a {
 	text-decoration : none;
-	margin-right : 6px;
+	margin-right : 2px;
 }
 
 .banner-link svg {
@@ -22,15 +22,21 @@
 	line-height : 25px;
 }
 
-/* checkout link */
-a.checkout-link , a.checkout-link svg{
-	color : limegreen;
-	fill : limegreen;
+a.banner-link {
+	color : black;
+	background : lightblue;
+	padding : 6px 12px;
+	border-radius : 10px;
 }
 
-a.checkout-link:hover {
-	color : forestgreen;
+a.banner-link svg{
+	fill : black;
 }
-a.checkout-link:hover svg {
-	fill : forestgreen;
+
+a.banner-link:hover {
+	color : white;
+	background : cadetblue;
+}
+a.banner-link:hover svg {
+	fill : white;
 }
