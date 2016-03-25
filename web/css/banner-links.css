@@ -1,0 +1,36 @@
+
+/* banner links section */
+.banner-links {
+	padding : 12px;
+	text-align : right;
+	border-bottom : solid 1px green;
+}
+
+.banner-links span, .banner-links a {
+	display : inline-block;
+}
+
+.banner-links a {
+	text-decoration : none;
+	margin-right : 6px;
+}
+
+.banner-link svg {
+	vertical-align : middle;
+}
+.banner-link .text {
+	line-height : 25px;
+}
+
+/* checkout link */
+a.checkout-link , a.checkout-link svg{
+	color : limegreen;
+	fill : limegreen;
+}
+
+a.checkout-link:hover {
+	color : forestgreen;
+}
+a.checkout-link:hover svg {
+	fill : forestgreen;
+}

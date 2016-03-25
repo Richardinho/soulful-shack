@@ -13,7 +13,7 @@
 
 		function getUser() {
 			var deferred = $q.defer();
-			user.signedIn = false; //  should look in localstorage for token
+			user.signedIn = true; //  should look in localstorage for token
 			deferred.resolve(user);
 			return deferred.promise;
 		}

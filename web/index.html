@@ -9,8 +9,10 @@
 	<link href='/css/main.css' rel='stylesheet'>
 	<link href='/css/sign-in.css' rel='stylesheet'>
 	<link href='/css/banner.css' rel='stylesheet'>
+	<link href='/css/banner-links.css' rel='stylesheet'>
 	<link href='/css/menu.css' rel='stylesheet'>
 	<link href='/css/content.css' rel='stylesheet'>
+	<link href='/css/confirmation-page.css' rel='stylesheet'>
 	<link href='/css/hotel-detail.css' rel='stylesheet'>
 	<link href='/css/order.css' rel='stylesheet'>
 	<link href='/css/pagination.css' rel='stylesheet'>
@@ -23,11 +25,23 @@
 	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 	<base href="/">
 </head>
-<body ng-app='soulful-shack'>
+<body ng-app='soulful-shack' ng-controller='MainCtrl'>
 	<div class='container'>
 		<div class='banner-links'>
-			<span ui-sref='signin' class='sign-in-link'>sign in</span>
-			<span                  class='checkout-link'>check out</span>
+			<span ng-switch="signedIn">
+				<a ui-sref='order'  class='banner-link'>
+					<svg width='25' height='25' viewbox='0 0 16 16'>
+						<use x="0" y="0" xlink:href="#checkout-trolly" />
+					</svg>
+					<span class='text'>check out</span>
+				</a>
+				<a ng-switch-when="true" ui-sref='profile' class='banner-link'>
+					<svg width='25' height='25' viewbox='0 0 16 16'>
+						<use x="0" y="0" xlink:href="#user-profile" />
+					</svg>
+					<span class='text'>user</span>
+				</a>
+			</span>
 		</div>
 		<div class='banner'>
 			<a href='/' class='logo'>
@@ -42,10 +56,30 @@
 		<div class='footer'>&copy;richard hunter 2016</div>
 	</div>
 	<script src='js/main.js'></script>
-	<script src='js/create-refinements-factory.js'></script>
-	<script src='js/create-pagination-factory.js'></script>
-	<script src='js/hotels-service.js'></script>
-	<script src='js/user-service.js'></script>
-	<script src='js/cart-service.js'></script>
+	<script src='js/services/create-refinements-factory.js'></script>
+	<script src='js/services/create-pagination-factory.js'></script>
+	<script src='js/services/user-service.js'></script>
+	<script src='js/services/hotels-service.js'></script>
+	<script src='js/services/cart-service.js'></script>
+	<script src='js/services/order-service.js'></script>
+	<script src='js/states/sign-in.js'></script>
+	<script src='js/states/record-detail.js'></script>
+	<script src='js/states/order.js'></script>
+	<script src='js/states/confirmation.js'></script>
+	<script src='js/states/abstract-records.js'></script>
+	<script src='js/states/records.js'></script>
+
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+		<defs>
+			<g id='checkout-trolly'>
+        <path d="M6 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
+        <path d="M16 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
+        <path d="M16 8v-6h-12c0-0.552-0.448-1-1-1h-3v1h2l0.751 6.438c-0.458 0.367-0.751 0.93-0.751 1.562 0 1.105 0.895 2 2 2h12v-1h-12c-0.552 0-1-0.448-1-1 0-0.003 0-0.007 0-0.010l13-1.99z"></path>
+      </g>
+			<g id='user-profile'>
+				<path d="M5 3c0-1.657 1.343-3 3-3s3 1.343 3 3c0 1.657-1.343 3-3 3s-3-1.343-3-3zM12.001 7h-0.553l-3.111 6.316 1.163-5.816-1.5-1.5-1.5 1.5 1.163 5.816-3.111-6.316h-0.554c-1.999 0-1.999 1.344-1.999 3v5h12v-5c0-1.656 0-3-1.999-3z"></path>
+			</g>
+    </defs>
+	</svg>
 </body>
 </html>

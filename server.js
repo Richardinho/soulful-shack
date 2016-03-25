@@ -33,6 +33,12 @@ app.get('/api/hotel/:id', function (request, response) {
 	});
 });
 
+app.post('/api/order', function (request, response){
+
+	response.json({ success : true });
+
+});
+
 app.get('*', function (request, response) {
 	response.sendFile(__dirname + '/web/index.html');
 });

@@ -5,5 +5,6 @@
 	<div class='info'>user rating count: {{  hotel.UserRatingCount }}</div>
 	<img class='big-image' ng-src='{{ hotel.ImageUrl}}' alt='{{ hotel.Name}}'>
 	<button ng-click='goBack()'>go back</button>
-	<button ng-click='purchase(hotel.id)'>purchase</button>
+	<button ng-click='addToCart(hotel.id)'>add to cart</button>
+	<button ui-sref='order'>checkout</button>
 </article>

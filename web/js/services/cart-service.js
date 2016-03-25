@@ -87,6 +87,7 @@
 
 		return {
 			getUserCart : _getUserCart,
+			getAnonymousUserCart : _getAnonymousUserCart,
 			addItemToUserCart : addItemToUserCart,
 			addItemToAnonymousCart : addItemToAnonymousCart,
 			writeAnonymousCartItemsToUserCart : writeAnonymousCartItemsToUserCart,
