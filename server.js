@@ -1,13 +1,13 @@
 var express = require('express');
-var hotelService = require('./app/hotel-service');
+var recordService = require('./app/record-service');
 
 var app = express();
 var port = process.env.PORT || 5000;
 
 app.use(express.static('./web'));
 
-app.get('/api/hotels/:page/:minCost/:userRating/:stars/:sortby', function (request, response) {
-	hotelService.getHotelSummaries(
+app.get('/api/records/:page/:minCost/:userRating/:stars/:sortby', function (request, response) {
+	recordService.getRecordSummaries(
 		request.params.page,
 		request.params.minCost,
 		request.params.userRating,
@@ -22,8 +22,8 @@ app.get('/api/hotels/:page/:minCost/:userRating/:stars/:sortby', function (reque
 			});
 		});
 
-app.get('/api/hotel/:id', function (request, response) {
-	hotelService.getHotel(request.params.id).then(function(data){
+app.get('/api/record/:id', function (request, response) {
+	recordService.getRecord(request.params.id).then(function(data){
 		response.json(data);
 	}, function(error){
 		console.log('error:', error);

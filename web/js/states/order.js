@@ -38,6 +38,8 @@
 							})
 						} else {
 							console.log('you are not signed in');
+							//  redirect to sign in page
+							$state.go('signin', { nextpage : 'order'});
 						}
 					}
 				}

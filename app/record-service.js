@@ -10,12 +10,12 @@ var pagination = require('./pagination');
 
 var resultsPerPage = config.resultsPerPage;
 
-module.exports.getHotelSummaries = function (page, minCost, userRating, stars, sortby) {
-	return getHotelData().then(function (data) {
+module.exports.getRecordSummaries = function (page, minCost, userRating, stars, sortby) {
+	return getRecordData().then(function (data) {
 		var metadata = new Metadata(data.Establishments, minCost, userRating, stars, sortby);
-		var filteredHotels = applyFilters(data.Establishments, minCost, userRating, stars);
-		filteredHotels.sort(sortingStrategy(sortby));
-		var hotels = getPage(filteredHotels, page);
+		var filteredRecords = applyFilters(data.Establishments, minCost, userRating, stars);
+		filteredRecords.sort(sortingStrategy(sortby));
+		var hotels = getPage(filteredRecords, page);
 		var establishments =  _.map(hotels, function(item) {
 			return {
 				"Name" : item.Name,
@@ -34,7 +34,7 @@ module.exports.getHotelSummaries = function (page, minCost, userRating, stars, s
 
 		return {
 			"Establishments" : establishments,
-			"PaginationData" : pagination.createPaginationObject(filteredHotels.length, page, 5 ),
+			"PaginationData" : pagination.createPaginationObject(filteredRecords.length, page, 5 ),
 			"filterdata" : metadata
 		};
 
@@ -43,8 +43,8 @@ module.exports.getHotelSummaries = function (page, minCost, userRating, stars, s
 	});
 };
 
-module.exports.getHotel = function (id) {
-	return getHotelData().then(function(data){
+module.exports.getRecord = function (id) {
+	return getRecordData().then(function(data){
 		var record = _.find(data.Establishments, function(record) {
 			return record.id == id;
 		});
@@ -56,15 +56,15 @@ module.exports.getHotel = function (id) {
 }
 
 
-function getPage(hotels, page) {
+function getPage(records, page) {
 	var pageNumber = parseInt(page, 10) || 1;
 	var offset = ((pageNumber - 1) * resultsPerPage);
-	var sliced = hotels.slice(offset, offset + resultsPerPage);
+	var sliced = records.slice(offset, offset + resultsPerPage);
 	return sliced;
 }
 
-function applyFilters(hotels, minCost, userRating, stars) {
-	var result =  _.chain(hotels)
+function applyFilters(records, minCost, userRating, stars) {
+	var result =  _.chain(records)
 		.filter(filterByMinCost(minCost))
 		.filter(filterByUserRating(userRating))
 		.filter(filterByStarRating(stars))
@@ -74,26 +74,26 @@ function applyFilters(hotels, minCost, userRating, stars) {
 
 /* return results with min cost greater than a given value */
 function filterByMinCost(minCost) {
-	return function(hotel) {
-		return parseFloat(hotel.MinCost, 10) >=  parseFloat(minCost, 10);
+	return function(record) {
+		return parseFloat(record.MinCost, 10) >=  parseFloat(minCost, 10);
 	};
 }
 
 /* return results which have a user rating higher than a given value */
 function filterByUserRating(userRating) {
-	return function(hotel) {
-		return parseFloat(hotel.UserRating, 10) >= parseFloat(userRating, 10);
+	return function(record) {
+		return parseFloat(record.UserRating, 10) >= parseFloat(userRating, 10);
 	};
 }
 
 /* return results with stars greater than a given value */
 function filterByStarRating(stars) {
-	return function(hotel) {
-		return parseFloat(hotel.Stars, 10) >=  parseFloat(stars, 10);
+	return function(record) {
+		return parseFloat(record.Stars, 10) >=  parseFloat(stars, 10);
 	};
 }
 
-function getHotelData() {
+function getRecordData() {
 	return new Promise(function(resolve, reject){
 		fs.readFile(filename, function (err, data) {
 			if(err) {

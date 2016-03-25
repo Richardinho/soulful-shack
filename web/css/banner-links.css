@@ -18,13 +18,13 @@
 .banner-link svg {
 	vertical-align : middle;
 }
-.banner-link .text {
+.banner-link {
 	line-height : 25px;
 }
 
 a.banner-link {
 	color : black;
-	background : lightblue;
+	background : orange;
 	padding : 6px 12px;
 	border-radius : 10px;
 }
@@ -34,9 +34,18 @@ a.banner-link svg{
 }
 
 a.banner-link:hover {
-	color : white;
-	background : cadetblue;
+	color : orange;
+	background : black;
 }
 a.banner-link:hover svg {
+	fill : orange;
+}
+
+a.checkout-link {
+	background : lightblue;
+	color : white;
+
+}
+a.checkout-link svg {
 	fill : white;
 }

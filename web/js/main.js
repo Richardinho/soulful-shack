@@ -4,12 +4,17 @@
 
 	var app = angular.module('soulful-shack', ['ui.router']);
 
-	app.controller('MainCtrl', ['$scope', 'userService', function($scope, userService) {
-		var user = userService.getUser().then(function (user) {
-			$scope.signedIn = user.signedIn;
-		}, function () {
-			$scope.loggedIn = false;
-		});
+	app.controller('MainCtrl', ['$rootScope', 'userService',
+		function($rootScope, userService) {
+
+			userService.getUser().then(function (user) {
+				$rootScope.user = user;
+			});
+
+			$rootScope.signout = function () {
+				userService.signOut();
+				$rootScope.user = { signedIn : false };
+			}
 	}])
 
 	app.config(function($locationProvider) {
@@ -18,7 +23,7 @@
 
 	app.config(['$urlRouterProvider', function($urlRouterProvider){
 		// default path
-		$urlRouterProvider.otherwise('/hotels/summaries');
+		$urlRouterProvider.otherwise('/records/summaries');
 	}]);
 
 }();

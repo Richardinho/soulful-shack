@@ -1,0 +1,10 @@
+<article class='record-detail clearfix'>
+	<h2>{{ recordDetail.Name }}, {{  recordDetail.Location }}</h2>
+	<div class='info'>min cost: {{ recordDetail.MinCost | currency : '£' }}</div>
+	<div class='info'>user rating: {{  recordDetail.UserRating }}</div>
+	<div class='info'>user rating count: {{  recordDetail.UserRatingCount }}</div>
+	<img class='big-image' ng-src='{{ recordDetail.ImageUrl}}' alt='{{ recordDetail.Name}}'>
+	<button ng-click='goBack()'>go back</button>
+	<button ng-click='addToCart(recordDetail.id)'>add to cart</button>
+	<button ui-sref='order'>checkout</button>
+</article>

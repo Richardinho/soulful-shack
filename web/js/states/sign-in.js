@@ -5,27 +5,29 @@
 	app.config(['$stateProvider', function($stateProvider){
 
 		$stateProvider.state('signin', {
-			url : '/sign-in',
+			url : '/sign-in?nextpage',
 			templateUrl : 'partials/sign-in.html',
-			controller : ['$scope', '$state', 'userService','cartService', function ($scope, $state, userService, cartService ) {
-				$scope.user = {};
-				$scope.signin = function () {
-					var username = $scope.user.name;
-					var password = $scope.user.password;
-					userService.signIn(username, password).then(function (user) {
-						if(user.signedIn) {
-							cartService.writeAnonymousCartItemsToUserCart();
-							//todo : should return back into previous flow
-							$state.go('order');
-						} else {
-							console.log('you are not registered in our database')
-						}
-					}, function () {
-						console.log('an error occurred');
-					});
-				}
-			}]
-		});
+			controller : ['$scope', '$rootScope', '$state', 'userService','cartService', '$stateParams',
+				function ( $scope, $rootScope, $state, userService, cartService, $stateParams ) {
+					$scope.user = {};
+					$scope.signin = function () {
+						var username = $scope.user.name;
+						var password = $scope.user.password;
+						userService.signIn(username, password).then(function (user) {
+							$rootScope.user = user;
+							if(user.signedIn) {
+								var nextPage = $stateParams['nextpage'];
+								cartService.writeAnonymousCartItemsToUserCart();
+								$state.go(nextPage);
+							} else {
+								console.log('you are not registered in our database')
+							}
+						}, function () {
+							console.log('an error occurred');
+						});
+					}
+				}]
+			});
 
 	}]);
 

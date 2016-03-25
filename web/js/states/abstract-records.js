@@ -5,12 +5,12 @@
 	app.config(['$stateProvider', function($stateProvider){
 
 		$stateProvider
-			.state('hotels', {
-				url : '/hotels?page&mincost&stars&userrating&sortby',
+			.state('records', {
+				url : '/records?page&mincost&stars&userrating&sortby',
 				abstract : true,
-				templateUrl : 'partials/hotels.html',
+				templateUrl : 'partials/records.html',
 				resolve : {
-					'serverData' : ['hotelsService', '$stateParams', function(hotelsService, $stateParams) {
+					'serverData' : ['recordsService', '$stateParams', function(recordsService, $stateParams) {
 						/*
 							default values for parameters in case a user leaves them out are hard coded here.
 						*/
@@ -22,7 +22,7 @@
 							sortby     : $stateParams.sortby || 'distance'
 						};
 
-						return hotelsService.getHotelSummaries(refinements);
+						return recordsService.getRecordSummaries(refinements);
 					}]
 				}
 			});

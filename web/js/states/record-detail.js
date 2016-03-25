@@ -5,18 +5,18 @@
 	app.config(['$stateProvider', function($stateProvider){
 
 		$stateProvider
-			.state('hotelDetail', {
-				url : '/hotel/:id',
+			.state('record', {
+				url : '/record/:id',
 				resolve : {
-					'hotelDetail' : ['hotelsService', '$stateParams', function(hotelsService, $stateParams) {
-						return hotelsService.getDetail($stateParams.id);
+					'recordDetail' : ['recordsService', '$stateParams', function(recordsService, $stateParams) {
+						return recordsService.getRecord($stateParams.id);
 					}]
 				},
-				templateUrl : 'partials/hotel-detail.html',
-				controller : ['$scope','$state','hotelDetail','userService','cartService','$window', function (
-						$scope,$state,hotelDetail,userService,cartService,$window){
+				templateUrl : 'partials/record-detail.html',
+				controller : ['$scope','$state','recordDetail','userService','cartService','$window', function (
+						$scope, $state, recordDetail, userService, cartService, $window){
 
-					$scope.hotel = hotelDetail.data;
+					$scope.recordDetail = recordDetail.data;
 					$scope.goBack = function () {
 						$window.history.back();
 					};
@@ -25,9 +25,9 @@
 
 						userService.getUser().then(function (user) {
 							if(user.signedIn){
-								cartService.addItemToUserCart($scope.hotel);
+								cartService.addItemToUserCart($scope.recordDetail);
 							} else {
-								cartService.addItemToAnonymousCart($scope.hotel);
+								cartService.addItemToAnonymousCart($scope.recordDetail);
 							}
 						}, function (error) {
 							console.log('error handling', error);

@@ -26,12 +26,12 @@
 	app.config(['$stateProvider', function($stateProvider) {
 
 		$stateProvider
-			.state('hotels.summaries', {
+			.state('records.summaries', {
 				url : '/summaries',
 				resolve : {
 					/* filters and sort options used by both refinements and pagination */
 					refinements : function(serverData, createRefinements) {
-						return createRefinements(serverData.data.filterdata, serverData.data.PaginationData.current);;
+						return createRefinements(serverData.data.filterdata, serverData.data.PaginationData.current);
 					}
 				},
 				views : {
@@ -45,7 +45,7 @@
 
 							$scope.refresh = function () {
 								var filterData = createUrlParamsFromFilters($scope.filters, 1)
-								$state.go('hotels.summaries', filterData);
+								$state.go('records.summaries', filterData);
 							}
 						}
 					},
@@ -66,15 +66,15 @@
 											requestedPage = parseInt(serverData.data.PaginationData.current, 10) + 1;
 										}
 										refinements.page = requestedPage;
-										$state.go('hotels.summaries', createUrlParamsFromFilters(refinements));
+										$state.go('records.summaries', createUrlParamsFromFilters(refinements));
 									}
 								}
 							}]
 					},
 					'results' : {
-						templateUrl : 'partials/hotel-summaries.html',
+						templateUrl : 'partials/record-summaries.html',
 						controller : function($scope, serverData){
-							$scope.hotels = serverData.data.Establishments;
+							$scope.recordDetails = serverData.data.Establishments;
 							$scope.getStars = function (rating) {
 								return ratings[rating];
 							};

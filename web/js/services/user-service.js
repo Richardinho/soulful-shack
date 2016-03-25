@@ -7,35 +7,55 @@
 		'john' : 'password2'
 	};
 
+
+
 	app.factory('userService', ['$http', '$q', function ($http, $q) {
 
 		var user = {};
+		var anonymousUser = {
+			name : 'anonymous',
+			signedIn : false
+		};
 
 		function getUser() {
 			var deferred = $q.defer();
-			user.signedIn = true; //  should look in localstorage for token
-			deferred.resolve(user);
+			var userString = window.sessionStorage.getItem('user');
+			try  {
+				var user = JSON.parse(userString);
+				if(user) {
+					deferred.resolve(user);
+				} else {
+					deferred.resolve(anonymousUser);
+				}
+			} catch(e) {
+				deferred.resolve(anonymousUser);
+			}
 			return deferred.promise;
 		}
 
 		function signIn(name, password ) {
+			var user;
 			var deferred = $q.defer();
 			if(users[name] && password === users[name]) {
-				deferred.resolve({
+				user = {
 					name : name,
 					signedIn : true
-				})
+				}
 			} else {
-				deferred.resolve({
-					name : null,
-					signedIn : false
-				});
+				user = anonymousUser;
 			}
+			deferred.resolve(user);
+			window.sessionStorage.setItem('user', JSON.stringify(user));
 			return deferred.promise;
+		}
+
+		function signOut() {
+			window.sessionStorage.removeItem('user');
 		}
 		return {
 			getUser : getUser,
-			signIn : signIn
+			signIn : signIn,
+			signOut : signOut
 		};
 
 	}]);

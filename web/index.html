@@ -13,7 +13,7 @@
 	<link href='/css/menu.css' rel='stylesheet'>
 	<link href='/css/content.css' rel='stylesheet'>
 	<link href='/css/confirmation-page.css' rel='stylesheet'>
-	<link href='/css/hotel-detail.css' rel='stylesheet'>
+	<link href='/css/record-detail.css' rel='stylesheet'>
 	<link href='/css/order.css' rel='stylesheet'>
 	<link href='/css/pagination.css' rel='stylesheet'>
 	<link href='/css/footer.css' rel='stylesheet'>
@@ -28,18 +28,20 @@
 <body ng-app='soulful-shack' ng-controller='MainCtrl'>
 	<div class='container'>
 		<div class='banner-links'>
-			<span ng-switch="signedIn">
-				<a ui-sref='order'  class='banner-link'>
-					<svg width='25' height='25' viewbox='0 0 16 16'>
-						<use x="0" y="0" xlink:href="#checkout-trolly" />
-					</svg>
-					<span class='text'>check out</span>
-				</a>
+			<span ng-switch="user.signedIn">
 				<a ng-switch-when="true" ui-sref='profile' class='banner-link'>
 					<svg width='25' height='25' viewbox='0 0 16 16'>
 						<use x="0" y="0" xlink:href="#user-profile" />
 					</svg>
-					<span class='text'>user</span>
+					<span class='text'>{{ user.name }}</span>
+				</a>
+				<a ng-switch-when="true" ng-click='signout()' class='banner-link'>sign out</a>
+				<a ng-switch-when="false" ui-sref='signin({ nextpage :"records.summaries" })' class='banner-link'>sign in</a>
+				<a ui-sref='order'  class='checkout-link banner-link'>
+					<svg width='25' height='25' viewbox='0 0 16 16'>
+						<use x="0" y="0" xlink:href="#checkout-trolly" />
+					</svg>
+					<span class='text'>check out</span>
 				</a>
 			</span>
 		</div>
@@ -59,7 +61,7 @@
 	<script src='js/services/create-refinements-factory.js'></script>
 	<script src='js/services/create-pagination-factory.js'></script>
 	<script src='js/services/user-service.js'></script>
-	<script src='js/services/hotels-service.js'></script>
+	<script src='js/services/records-service.js'></script>
 	<script src='js/services/cart-service.js'></script>
 	<script src='js/services/order-service.js'></script>
 	<script src='js/states/sign-in.js'></script>
