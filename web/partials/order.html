@@ -7,8 +7,17 @@
 		<img class='big-image' ng-src='{{ record.ImageUrl}}' alt='{{ record.Name}}'>
 		<div class='order-info'>
 			<div class='order-price'>{{ record.MinCost | currency : '£' }}</div>
+			<div class='total-item-price'>{{ record.MinCost * record.quantity | currency : '£' }}</div>
+			<div class='order-quantity'>
+				<label for='order-quantity'>quantity</label>
+				<input id='order-quantity' ng-model='record.quantity' type='number' min='0' max='10'>
+			</div>
 		</div>
 		</li>
 	</ul>
-	<button class='cta' ng-click='placeOrder()'>confirm</button>
+	<div class='order-summary'>
+		total price : {{  totalPrice() | currency : '£' }}
+		</div>
+	<button ng-if='user.signedIn' class='cta' ng-click='checkout()'>checkout</button>
+	<p ng-if='!user.signedIn'>You must be signed in to be able to place an order</p>
 </div>

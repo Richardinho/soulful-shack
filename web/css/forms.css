@@ -1,0 +1,48 @@
+
+.input-fields {
+	margin : auto;
+	margin-bottom : 12px;
+}
+
+.input-fields label {
+	display : inline-block;
+	text-align : right;
+	padding: 6px 0;
+}
+
+.input-fields input {
+	border : none;
+	border-radius : 4px;
+	outline : none;
+}
+
+.input-fields input:focus {
+	box-shadow: 0 0 0 1px chocolate;
+}
+
+.messages {
+	padding : 6px;
+}
+
+.message {
+  transition:0.5s ease-in-out  all;
+  color : orange;
+}
+
+.message.ng-enter {
+	opacity : 0;
+	transform : translateX(100%);
+	color : black;
+}
+.message.ng-enter.ng-enter-active {
+	opacity : 1;
+	color : orange;
+	transform : translateX(0);
+}
+
+.message.ng-leave {
+	opacity : 1;
+}
+.message.ng-leave.ng-leave-active {
+	opacity : 0;
+}

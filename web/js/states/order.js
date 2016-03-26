@@ -23,7 +23,13 @@
 					}
 					$scope.products= (cart && cart.products) || [];
 
-					$scope.placeOrder = function () {
+					$scope.totalPrice = function () {
+						return $scope.products.reduce(function (previous, current){
+							return previous + (current.MinCost * current.quantity);
+						}, 0);
+					}
+
+					$scope.checkout = function () {
 						if(user.signedIn) {
 							orderService.submitOrder($scope.products).then(function(response){
 								if(response.data.success) {

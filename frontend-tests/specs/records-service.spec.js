@@ -1,6 +1,6 @@
 describe('records-service', function () {
 	var $httpBackend;
-	beforeEach(module('soulful-shack'));
+
 
 	var recordsService;
 

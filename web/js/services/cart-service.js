@@ -6,46 +6,46 @@
 	var USER_CART = 'usercart';
 
 //todo: work out exact business rules for dealing with carts
-	app.factory('cartService', [function () {
+	app.factory('cartService', ['storageService', function (storageService) {
 
 		//  public
 		function addItemToUserCart(product) {
-			_addItemToCart(product, USER_CART, window.localStorage);
+			_addItemToCart(product, USER_CART, 'local');
 		}
 
 		function addItemToAnonymousCart(product) {
-			_addItemToCart(product, ANONYMOUS_CART, window.sessionStorage);
+			_addItemToCart(product, ANONYMOUS_CART, 'session');
 		}
 
 		function writeAnonymousCartItemsToUserCart() {
       var userCart = _getUserCart();
       var anonymousCart = _getAnonymousUserCart();
       userCart.products = userCart.products.concat(anonymousCart.products);
-      window.localStorage.setItem(USER_CART, JSON.stringify(userCart));
+      storageService.setItem('local', USER_CART, JSON.stringify(userCart));
       _deleteAnonymousCart();
     }
 
 		function deleteUserCart() {
-			window.localStorage.removeItem(USER_CART);
+			storageService.removeItem('local', USER_CART);
 		}
 
 		function _deleteAnonymousCart() {
-			window.sessionStorage.removeItem(ANONYMOUS_CART);
+			storageService.removeItem('session', ANONYMOUS_CART);
 		}
 
 		//  private
 
 		function _getUserCart() {
-			return _getOrCreateCart(USER_CART, window.localStorage);
+			return _getOrCreateCart(USER_CART, 'local');
 		}
 
 		function _getAnonymousUserCart() {
-			return _getOrCreateCart(ANONYMOUS_CART, window.sessionStorage);
+			return _getOrCreateCart(ANONYMOUS_CART, 'session');
 		}
 
-		function _getOrCreateCart(cartidentifier, storage) {
+		function _getOrCreateCart(cartidentifier, storageType) {
 			var cart;
-			var cartString = storage.getItem(cartidentifier);
+			var cartString = storageService.getItem(storageType, cartidentifier);
 			if(cartString){
 				try {
 					cart = JSON.parse(cartString);
@@ -55,30 +55,46 @@
 			} else {
 				cart = { products : []};
 			}
-			storage.setItem(cartidentifier, JSON.stringify(cart));
+			storageService.setItem(storageType, cartidentifier, JSON.stringify(cart));
 			return cart;
 
 		}
 
-		function _addItemToCart(product, storageKey, storage){
+		function getProductFromCart(cart, product) {
+			return cart.products.find(function(item){
+				return product.id == item.id;
+			})
+		}
+
+		function _addItemToCart(product, storageKey, storageType){
 			var cart;
 			var cartItem = _createCartItem(product);
-			var cartString = storage.getItem(storageKey);
+			var cartString = storageService.getItem(storageType, storageKey);
 			if(cartString) {
 				try {
 					cart = JSON.parse(cartString);
-					cart.products.push(cartItem);
+
+					var existingProduct = getProductFromCart(cart, product);
+					if(existingProduct) {
+						existingProduct.quantity++;
+					} else {
+						cartItem.quantity = 1;
+						cart.products.push(cartItem);
+					}
+
 				} catch(e) {
+					cartItem.quantity = 1;
 					cart = {
 						products : [cartItem]
 					}
 				}
 			} else {
+				cartItem.quantity = 1;
 				cart = {
 					products : [cartItem]
 				}
 			}
-			storage.setItem(storageKey, JSON.stringify(cart));
+			storageService.setItem(storageType, storageKey, JSON.stringify(cart));
 		}
 
 		function _createCartItem(product) {
@@ -86,9 +102,9 @@
 		}
 
 		return {
+			addItemToUserCart : addItemToUserCart,
 			getUserCart : _getUserCart,
 			getAnonymousUserCart : _getAnonymousUserCart,
-			addItemToUserCart : addItemToUserCart,
 			addItemToAnonymousCart : addItemToAnonymousCart,
 			writeAnonymousCartItemsToUserCart : writeAnonymousCartItemsToUserCart,
 			deleteUserCart : deleteUserCart

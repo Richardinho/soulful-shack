@@ -6,6 +6,7 @@
 	<title>The Soulful Shack UI Router</title>
 	<link href='/css/normalize.css' rel='stylesheet'>
 	<link href='/css/utils.css' rel='stylesheet'>
+	<link href='/css/forms.css' rel='stylesheet'>
 	<link href='/css/main.css' rel='stylesheet'>
 	<link href='/css/sign-in.css' rel='stylesheet'>
 	<link href='/css/banner.css' rel='stylesheet'>
@@ -14,6 +15,7 @@
 	<link href='/css/content.css' rel='stylesheet'>
 	<link href='/css/confirmation-page.css' rel='stylesheet'>
 	<link href='/css/record-detail.css' rel='stylesheet'>
+	<link href='/css/register.css' rel='stylesheet'>
 	<link href='/css/order.css' rel='stylesheet'>
 	<link href='/css/pagination.css' rel='stylesheet'>
 	<link href='/css/footer.css' rel='stylesheet'>
@@ -22,6 +24,7 @@
 	<script src='/js/lib/angular.js'></script>
 	<script src='/js/lib/angular-ui-router.js'></script>
 	<script src='/js/lib/angular-animate.js'></script>
+	<script src='/js/lib/angular-messages.js'></script>
 	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 	<base href="/">
 </head>
@@ -57,19 +60,24 @@
 		<div class='main clearfix' ui-view ></div>
 		<div class='footer'>&copy;richard hunter 2016</div>
 	</div>
-	<script src='js/main.js'></script>
+	<script src='/main.js'></script>
+	<script src='js/directives/file.js'></script>
+	<script src='js/directives/image.js'></script>
 	<script src='js/services/create-refinements-factory.js'></script>
 	<script src='js/services/create-pagination-factory.js'></script>
 	<script src='js/services/user-service.js'></script>
 	<script src='js/services/records-service.js'></script>
 	<script src='js/services/cart-service.js'></script>
 	<script src='js/services/order-service.js'></script>
+	<script src='js/services/storage-service.js'></script>
+	<script src='js/services/file-upload-service.js'></script>
 	<script src='js/states/sign-in.js'></script>
 	<script src='js/states/record-detail.js'></script>
 	<script src='js/states/order.js'></script>
 	<script src='js/states/confirmation.js'></script>
 	<script src='js/states/abstract-records.js'></script>
 	<script src='js/states/records.js'></script>
+	<script src='js/states/register.js'></script>
 
 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
 		<defs>

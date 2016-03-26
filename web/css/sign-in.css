@@ -9,23 +9,3 @@
 .password-recovery-links {
 	padding : 12px 0;
 }
-
-.input-fields {
-	margin : auto;
-	margin-bottom : 12px;
-}
-
-.input-fields label {
-	display : inline-block;
-	text-align : right;
-}
-
-.input-fields input {
-	border : solid 1px grey;
-	outline : none;
-}
-
-.input-fields input:focus {
-	outline: solid 1px chocolate;
-
-}

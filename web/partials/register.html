@@ -1,0 +1,71 @@
+<div class='register-page'>
+
+	<form name="myForm" novalidate>
+		<fieldset>
+			<legend>personal details</legend>
+			<div class='input-fields'>
+				<label for='first-name'> first name</label>
+				<input id='first-name' type='text' name='firstName' required maxlength="15" ng-model='user.firstName'>
+				<div class='messages' ng-messages="myForm.firstName.$touched && myForm.firstName.$error" role="alert">
+					<div class='message' ng-message="required">please enter your first name</div>
+					<div class='message'ng-message="maxlength">this field can be at most 15 characters long.</div>
+				</div>
+			</div>
+			<div class='input-fields'>
+				<label for='second-name'> second name</label>
+				<input id='second-name' type='text' name='secondName' required maxlength="15" ng-model='user.secondName'>
+				<div class='messages' ng-messages="myForm.secondName.$touched && myForm.secondName.$error" role="alert">
+					<div class='message' ng-message="required">Please enter your second name</div>
+					<div class='message' ng-message="maxlength">This field can be at most 15 characters long.</div>
+				</div>
+			</div>
+			<div class='avatar-upload clearfix'>
+				<div class='avatar-image-container'>
+					<div avatar-image></div>
+				</div>
+				<button ng-click='uploadAvatar()'>upload avatar</button>
+				<input file-model id="upload-avatar" style="visibility:hidden;height:0;width:0" name="avatar" type="file" />
+			</div>
+
+		</fieldset>
+		<fieldset>
+			<legend>address</legend>
+			<div class='input-fields'>
+				<label for='address-1'> first line of address</label>
+				<input id='address-1' type='text' name='address1' required maxlength="15" ng-model='user.address1'>
+				<div class='messages' ng-messages="myForm.address1.$touched && myForm.address1.$error" role="alert">
+					<div class='message' ng-message="required">Please enter a value for this field.</div>
+					<div class='message' ng-message="maxlength">This field can be at most 15 characters long.</div>
+				</div>
+			</div>
+			<div class='input-fields'>
+				<label for='address-2'> second line of address</label>
+				<input id='address-2' type='text' name='address2' required maxlength="15" ng-model='user.address2'>
+				<div class='messages' ng-messages="myForm.address2.$touched && myForm.address2.$error" role="alert">
+					<div class='message' ng-message="required">Please enter a value for this field.</div>
+					<div class='message' ng-message="maxlength">This field can be at most 15 characters long.</div>
+				</div>
+			</div>
+			<div class='input-fields'>
+				<label for='city'> town/city</label>
+				<input id='city' type='text' name='city' required maxlength="15" ng-model='user.city'>
+				<div class='messages' ng-messages="myForm.city.$touched && myForm.city.$error" role="alert">
+					<div class='message' ng-message="required">Please enter a value for this field.</div>
+					<div class='message' ng-message="maxlength">This field can be at most 15 characters long.</div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>contact info</legend>
+			<div class='input-fields'>
+				<label for='telephone'>telephone</label>
+				<input id='telephone' type='text' name='telephone'  ng-model='user.telephone'>
+			</div>
+			<div class='input-fields'>
+				<label for='email'>email</label>
+				<input id='email' type='text' name='email'  ng-model='user.email'>
+			</div>
+
+		</fieldset>
+	</form>
+</div>

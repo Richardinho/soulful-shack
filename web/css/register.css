@@ -1,0 +1,68 @@
+.register-page {
+	padding : 12px;
+}
+
+.register-page .avatar-upload button {
+	margin-left : 30%;
+}
+
+.register-page fieldset {
+  background: cornsilk;
+  padding-top: 47px;
+  position: relative;
+  border-top: solid 8px pink;
+}
+
+.register-page fieldset legend {
+	font-family : bangers;
+	position: absolute;
+  padding: 0;
+  font-size: 24px;
+  color: black;
+  text-transform: uppercase;
+  top: 12px;
+  left: 12px;
+  z-index : 0;
+
+}
+.register-page fieldset legend:after {
+	content: '';
+  display: inline-block;
+  left: 5px;
+  top: 8px;
+  right: -5px;
+  bottom: 0px;
+  position: absolute;
+  background-color: orange;
+  z-index: -1;
+  transform: skew(-16deg);
+  box-shadow : 2px 2px 0 0 cornflowerblue;
+}
+
+.register-page .input-fields {
+
+	display : flex;
+	justify-content : flex-start;
+}
+
+.register-page .input-fields label {
+	width : 30%;
+	padding-right : 6px;
+}
+
+.register-page .input-fields input {
+	width : 20%;
+}
+
+.register-page .input-fields  .messages {
+	width : 30%;
+	padding-left : 6px;
+}
+
+.register-page .avatar-image-container {
+	padding-left : 30%;
+}
+
+.register-page [avatar-image] {
+	width : 200px;
+}
