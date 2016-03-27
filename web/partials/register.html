@@ -21,10 +21,10 @@
 			</div>
 			<div class='avatar-upload clearfix'>
 				<div class='avatar-image-container'>
-					<div avatar-image></div>
+					<div avatar-preview imagefile='user.avatarFile'></div>
 				</div>
 				<button ng-click='uploadAvatar()'>upload avatar</button>
-				<input file-model id="upload-avatar" style="visibility:hidden;height:0;width:0" name="avatar" type="file" />
+				<input ng-model='user.fileToUpload' file-model id="upload-avatar" style="visibility:hidden;height:0;width:0" name="avatar" type="file" />
 			</div>
 
 		</fieldset>
@@ -65,7 +65,9 @@
 				<label for='email'>email</label>
 				<input id='email' type='text' name='email'  ng-model='user.email'>
 			</div>
-
+		</fieldset>
+		<fieldset class='submit-section'>
+			<button ng-click='submit()' class='cta'>submit</button>
 		</fieldset>
 	</form>
 </div>

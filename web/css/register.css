@@ -63,6 +63,16 @@
 	padding-left : 30%;
 }
 
-.register-page [avatar-image] {
+.register-page [avatar-preview] {
 	width : 200px;
+}
+
+.register-page .submit-section {
+  justify-content : flex-end;
+  padding-top: 12px;
+  border-top: none;
+  font-size : 30px;
+}
+.register-page .submit-section button {
+  float : right;
 }

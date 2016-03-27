@@ -23,7 +23,6 @@ describe('cart-service', function () {
 					return {
 						setItem : spyOnSetItem.and.callFake(function () {
 
-							console.log(arguments)
 						}),
 						removeItem : function (){
 
@@ -69,7 +68,6 @@ describe('cart-service', function () {
 				.factory('storageService', function($q) {
 					return {
 						setItem : spyOnSetItem.and.callFake(function () {
-							console.log(arguments)
 						}),
 						removeItem : function (){
 						},
