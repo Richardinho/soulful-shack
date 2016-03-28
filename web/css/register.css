@@ -39,22 +39,23 @@
   box-shadow : 2px 2px 0 0 cornflowerblue;
 }
 
-.register-page .input-fields {
+.input-fields {
 
 	display : flex;
 	justify-content : flex-start;
 }
 
-.register-page .input-fields label {
-	width : 30%;
+.input-fields label {
+	width : 40%;
 	padding-right : 6px;
 }
 
-.register-page .input-fields input {
+.input-fields input {
 	width : 20%;
+	padding : 0 6px;
 }
 
-.register-page .input-fields  .messages {
+.input-fields  .messages {
 	width : 30%;
 	padding-left : 6px;
 }

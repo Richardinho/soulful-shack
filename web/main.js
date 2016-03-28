@@ -4,16 +4,16 @@
 
 	var app = angular.module('soulful-shack', ['ui.router', 'ngMessages', 'ngAnimate']);
 
-	app.controller('MainCtrl', ['$rootScope', 'userService',
-		function($rootScope, userService) {
 
-			userService.getUser().then(function (user) {
-				$rootScope.user = user;
-			});
+	app.controller('MainCtrl', ['$rootScope', 'userService','$scope', '$state',
+		function($rootScope, userService, $scope, $state) {
+			//  runs on page load,
+			//  simply populates root scope with user from storage
+			userService.loadUser();
 
 			$rootScope.signout = function () {
 				userService.signOut();
-				$rootScope.user = { signedIn : false };
+				$state.go('records.summaries');
 			}
 	}])
 

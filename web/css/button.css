@@ -5,6 +5,7 @@ button {
 	border-radius : 5px;
 	background : deepskyblue;
 	color : white;
+	outline : none;
 }
 
 button:hover {

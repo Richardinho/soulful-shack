@@ -1,0 +1,21 @@
+.profile-page {
+	padding : 48px;
+}
+
+.avatar {
+	width : 200px;
+}
+
+.avatar img {
+	width : 100%;
+	border-radius : 4px;
+}
+
+.profile-page .media {
+	width : 70%;
+	margin : auto;
+	margin-bottom : 24px;
+	background: cornsilk;
+	padding : 24px;
+	border : solid 20px pink;
+}

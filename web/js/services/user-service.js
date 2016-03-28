@@ -2,62 +2,91 @@
 
 	'use strict';
 
-	var users = {
-		'richard' : 'password',
-		'john' : 'password2'
+	var anonymousUser = {
+		signedIn : false
 	};
 
+	app.factory('userService', ['$http', '$q','$rootScope', function ($http, $q, $rootScope) {
 
-
-	app.factory('userService', ['$http', '$q', function ($http, $q) {
-
-		var user = {};
-		var anonymousUser = {
-			name : 'anonymous',
-			signedIn : false
-		};
-
-		function getUser() {
-			var deferred = $q.defer();
+		function loadUser() {
 			var userString = window.sessionStorage.getItem('user');
 			try  {
 				var user = JSON.parse(userString);
 				if(user) {
-					deferred.resolve(user);
+					$rootScope.user = user;
 				} else {
-					deferred.resolve(anonymousUser);
+					$rootScope.user = anonymousUser;
 				}
 			} catch(e) {
-				deferred.resolve(anonymousUser);
+				console.log('parse error');
 			}
-			return deferred.promise;
 		}
 
-		function signIn(name, password ) {
-			var user;
-			var deferred = $q.defer();
-			if(users[name] && password === users[name]) {
-				user = {
-					name : name,
-					signedIn : true
+		function registerUser(user){
+			var formData = new FormData();
+			formData.append('firstName', user.firstName);
+			formData.append('lastName', user.secondName);
+			formData.append('address1', user.address1);
+			formData.append('address2', user.address2);
+			formData.append('city', user.city);
+			formData.append('email', user.email);
+			formData.append('password', user.password);
+			formData.append('telephone', user.telephone);
+			formData.append('avatar', user.avatarFile);
+			var options = {
+				transformRequest: angular.identity,
+				headers: {'Content-Type': undefined}
+			};
+			return $http.post('/api/register', formData, options).then(function (response) {
+				var _user = response.data.user;
+				_user.signedIn = true;
+				$rootScope.user = _user;
+      	window.sessionStorage.setItem('user', JSON.stringify(_user));
+				return _user;
+			}).catch(function () {
+				console.log('error occurred')
+			});
+		}
+		/*
+			connect to server and check if email and password
+			combination represent a registered user.
+			If so, return him, otherwise return false and allow calling code to deal with this.
+		*/
+		function signIn(email, password ) {
+			// remove any existing user data
+			signOut();
+			return $http.post('/api/signin', {
+				email : email,
+				password : password
+			}).then(function (response) {
+				var data = response.data;
+				if(!!data.success) {
+					var _user = response.data.user;
+					_user.signedIn = true;
+					$rootScope.user = _user;
+					window.sessionStorage.setItem('user', JSON.stringify(_user));
+					return _user;
+				} else {
+					console.log('problem on server', data.message);
+					return false;
 				}
-			} else {
-				user = anonymousUser;
-			}
-			deferred.resolve(user);
-			window.sessionStorage.setItem('user', JSON.stringify(user));
-			return deferred.promise;
+			}).catch(function(){
+				console.log('error');
+				return false;
+			});
 		}
 
 		function signOut() {
+			$rootScope.user = anonymousUser;
 			window.sessionStorage.removeItem('user');
 		}
+
 		return {
-			getUser : getUser,
+			loadUser : loadUser,
+			registerUser : registerUser,
 			signIn : signIn,
 			signOut : signOut
 		};
-
 	}]);
 
 }(angular.module('soulful-shack'));

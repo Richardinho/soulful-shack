@@ -13,8 +13,8 @@
 					}]
 				},
 				templateUrl : 'partials/record-detail.html',
-				controller : ['$scope','$state','recordDetail','userService','cartService','$window', function (
-						$scope, $state, recordDetail, userService, cartService, $window){
+				controller : ['$scope','$rootScope','$state','recordDetail','userService','cartService','$window', function (
+						$scope, $rootScope, $state, recordDetail, userService, cartService, $window){
 
 					$scope.recordDetail = recordDetail.data;
 					$scope.goBack = function () {
@@ -23,15 +23,11 @@
 
 					$scope.addToCart = function(id) {
 
-						userService.getUser().then(function (user) {
-							if(user.signedIn){
-								cartService.addItemToUserCart($scope.recordDetail);
-							} else {
-								cartService.addItemToAnonymousCart($scope.recordDetail);
-							}
-						}, function (error) {
-							console.log('error handling', error);
-						});
+						if($rootScope.user.signedIn){
+							cartService.addItemToUserCart($scope.recordDetail);
+						} else {
+							cartService.addItemToAnonymousCart($scope.recordDetail);
+						}
 						$state.go('order');
 					}
 				}]

@@ -1,6 +1,13 @@
 
 <div class='order clearfix'>
-	<h2>Your order</h2>
+	<div ng-switch="products.length > 0">
+		<div ng-switch-when="true">
+			<h2>Your order</h2>
+		</div>
+		<div ng-switch-when="false">
+			<h2>Your cart is empty</h2>
+		</div>
+	</div>
 	<ul class='order-list'>
 		<li class='order-item clearfix' ng-repeat='record in products'>
 		<h3>{{ record.artist }} {{ record.Name }}</h3>
@@ -15,9 +22,9 @@
 		</div>
 		</li>
 	</ul>
-	<div class='order-summary'>
+	<div ng-if="products.length > 0" class='order-summary'>
 		total price : {{  totalPrice() | currency : '£' }}
-		</div>
-	<button ng-if='user.signedIn' class='cta' ng-click='checkout()'>checkout</button>
+	</div>
+	<button ng-if='user.signedIn && products.length > 0' class='cta' ng-click='checkout()'>checkout</button>
 	<p ng-if='!user.signedIn'>You must be signed in to be able to place an order</p>
 </div>

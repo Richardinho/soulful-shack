@@ -21,28 +21,53 @@
 	<link href='/css/footer.css' rel='stylesheet'>
 	<link href='/css/animate.css' rel='stylesheet'>
 	<link href='/css/button.css' rel='stylesheet'>
+	<link href='/css/profile.css' rel='stylesheet'>
 	<script src='/js/lib/angular.js'></script>
 	<script src='/js/lib/angular-ui-router.js'></script>
 	<script src='/js/lib/angular-animate.js'></script>
 	<script src='/js/lib/angular-messages.js'></script>
 	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 	<base href="/">
 </head>
 <body ng-app='soulful-shack' ng-controller='MainCtrl'>
+
+
+
+	<svg width="25" height="25" viewbox="0 0 16 16">
+		<use x="0" y="0" xlink:href="#checkout-trolly" />
+	</svg>
+
 	<div class='container'>
 		<div class='banner-links'>
 			<span ng-switch="user.signedIn">
 				<a ng-switch-when="true" ui-sref='profile' class='banner-link'>
-					<svg width='25' height='25' viewbox='0 0 16 16'>
-						<use x="0" y="0" xlink:href="#user-profile" />
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 16 16">
+						<g id='user-profile'>
+							<path d="M5 3c0-1.657 1.343-3 3-3s3 1.343 3 3c0 1.657-1.343 3-3 3s-3-1.343-3-3zM12.001 7h-0.553l-3.111 6.316 1.163-5.816-1.5-1.5-1.5 1.5 1.163 5.816-3.111-6.316h-0.554c-1.999 0-1.999 1.344-1.999 3v5h12v-5c0-1.656 0-3-1.999-3z"></path>
+						</g>
 					</svg>
-					<span class='text'>{{ user.name }}</span>
+					<span class='text'>{{ user.firstName }}</span>
 				</a>
-				<a ng-switch-when="true" ng-click='signout()' class='banner-link'>sign out</a>
-				<a ng-switch-when="false" ui-sref='signin({ nextpage :"records.summaries" })' class='banner-link'>sign in</a>
+				<a ng-switch-when="true" ng-click='signout()' class='banner-link'>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 16 16">
+						<path d="M6 8h-5v-2h5v-2l3 3-3 3zM16 0v13l-6 3v-3h-6v-4h1v3h5v-9l4-2h-9v4h-1v-5z"></path>
+					</svg>
+					<span class='text'>sign out</span>
+				</a>
+				<a ng-switch-when="false" ui-sref='signin({ nextpage :"records.summaries" })' class='banner-link'>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 16 16">
+						<path d="M12 10v-2h-5v-2h5v-2l3 3zM11 9v4h-5v3l-6-3v-13h11v5h-1v-4h-8l4 2v9h4v-3z"></path>
+					</svg>
+					<span class='text'>sign in</span>
+				</a>
 				<a ui-sref='order'  class='checkout-link banner-link'>
-					<svg width='25' height='25' viewbox='0 0 16 16'>
-						<use x="0" y="0" xlink:href="#checkout-trolly" />
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 16 16" x="0" y="0">
+						<g id='checkout-trolly'>
+							<path d="M6 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
+							<path d="M16 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
+							<path d="M16 8v-6h-12c0-0.552-0.448-1-1-1h-3v1h2l0.751 6.438c-0.458 0.367-0.751 0.93-0.751 1.562 0 1.105 0.895 2 2 2h12v-1h-12c-0.552 0-1-0.448-1-1 0-0.003 0-0.007 0-0.010l13-1.99z"></path>
+						</g>
 					</svg>
 					<span class='text'>check out</span>
 				</a>
@@ -78,18 +103,6 @@
 	<script src='js/states/abstract-records.js'></script>
 	<script src='js/states/records.js'></script>
 	<script src='js/states/register.js'></script>
-
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-		<defs>
-			<g id='checkout-trolly'>
-        <path d="M6 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
-        <path d="M16 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
-        <path d="M16 8v-6h-12c0-0.552-0.448-1-1-1h-3v1h2l0.751 6.438c-0.458 0.367-0.751 0.93-0.751 1.562 0 1.105 0.895 2 2 2h12v-1h-12c-0.552 0-1-0.448-1-1 0-0.003 0-0.007 0-0.010l13-1.99z"></path>
-      </g>
-			<g id='user-profile'>
-				<path d="M5 3c0-1.657 1.343-3 3-3s3 1.343 3 3c0 1.657-1.343 3-3 3s-3-1.343-3-3zM12.001 7h-0.553l-3.111 6.316 1.163-5.816-1.5-1.5-1.5 1.5 1.163 5.816-3.111-6.316h-0.554c-1.999 0-1.999 1.344-1.999 3v5h12v-5c0-1.656 0-3-1.999-3z"></path>
-			</g>
-    </defs>
-	</svg>
+	<script src='js/states/profile.js'></script>
 </body>
 </html>

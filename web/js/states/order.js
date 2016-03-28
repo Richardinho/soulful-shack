@@ -9,13 +9,9 @@
 			.state('order', {
 				url : '/order',
 				templateUrl : 'partials/order.html',
-				resolve : {
-					user : function (userService) {
-						return userService.getUser();
-					}
-				},
-				controller : function ($scope, $state, orderService, cartService, user) {
+				controller : function ($scope, $state, orderService, cartService, $rootScope) {
 					var cart;
+					var user = $rootScope.user || {};
 					if(user.signedIn) {
 						cart = cartService.getUserCart();
 					} else {

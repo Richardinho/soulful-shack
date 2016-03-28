@@ -25,7 +25,8 @@
 a.banner-link {
 	color : black;
 	background : orange;
-	padding : 6px 12px;
+	padding : 12px 18px;
+	font-family : Ubuntu;
 	border-radius : 10px;
 }
 
@@ -42,9 +43,17 @@ a.banner-link:hover svg {
 }
 
 a.checkout-link {
-	background : lightblue;
+	background : hsl(128 , 76%, 58%);
 	color : white;
 
+}
+a.checkout-link:hover {
+	background : hsl(128 , 62%, 58%);
+	color : white;
+
+}
+a.checkout-link:hover svg {
+	fill : white;
 }
 a.checkout-link svg {
 	fill : white;
