@@ -50,8 +50,8 @@ describe('sign in journey', function () {
 
 				// verify that we are on the main results page
 				expect(browser.getCurrentUrl()).toContain('/records/summaries');
-				// and that the profile link contains the users firstName
-				expect(element(by.id('profile-link-text')).getText()).toBe(REGISTERED_USER_FIRST_NAME);
+				// and that the welcome salutation contains the users firstName
+				expect(element(by.css('[data-test=index-welcome-text]')).getText()).toBe(REGISTERED_USER_FIRST_NAME);
 
 				browser.executeScript("return window.sessionStorage.getItem('user');").then(function (user) {
 					var user = JSON.parse(user);

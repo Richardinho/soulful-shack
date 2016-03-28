@@ -34,23 +34,16 @@ apiRouter.get('/record/:id', function (request, response) {
 
 var upload = multer({ dest: 'web/avatars/' })
 
-function getFileSuffix(mimetype){
-	var mimetypes = {
-		'image/jpeg' : '.jpg'
-	};
-	return mimetypes[mimetype];
-}
-
 apiRouter.post('/order', function (request, response){
 	response.json({ success : true });
 });
 
 apiRouter.post('/register', upload.single('avatar'), function (request, response) {
 	userService.registerUser(request.body, request.file).then(function(user){
-
 		response.json({ success : true, user : user });
-	}).catch(function() {
-		console.log('something went wrong');
+	}).catch(function(error) {
+		//  log error, but simply report failure to user
+		console.log('something went wrong', error);
 		response.json({ success : false });
 	});
 });

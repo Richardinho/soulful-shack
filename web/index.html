@@ -37,7 +37,7 @@
 				<span ng-switch-when="true" class='welcome'>
 					<img ng-if='user.avatarFileName' ng-src='{{ "/avatars/" + user.avatarFileName }}'>
 					<span>
-					Welcome <strong>{{ user.firstName }}!</strong></span>
+					Welcome <strong data-test='index-welcome-text'>{{ user.firstName }}</strong></span>
 				</span>
 				<a ng-switch-when="true" ui-sref='profile' class='banner-link'>
 					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 16 16">
