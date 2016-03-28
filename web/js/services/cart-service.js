@@ -18,12 +18,23 @@
 		}
 
 		function writeAnonymousCartItemsToUserCart() {
-      var userCart = _getUserCart();
-      var anonymousCart = _getAnonymousUserCart();
-      userCart.products = userCart.products.concat(anonymousCart.products);
-      storageService.setItem('local', USER_CART, JSON.stringify(userCart));
-      _deleteAnonymousCart();
-    }
+			var userCart = _getUserCart();
+			var anonymousCart = _getAnonymousUserCart();
+
+			var anonymousCartProducts = anonymousCart.products;
+			//  important to remove duplicates and simply increment quantity in target product
+			anonymousCartProducts.forEach(function (product) {
+				var userCartProduct = getProductFromCart(userCart, product);
+				if(userCartProduct) {
+					userCartProduct.quantity = userCartProduct.quantity + product.quantity;
+				} else {
+					userCart.products.push(product);
+				}
+			});
+
+			storageService.setItem('local', USER_CART, JSON.stringify(userCart));
+			_deleteAnonymousCart();
+		}
 
 		function deleteUserCart() {
 			storageService.removeItem('local', USER_CART);
@@ -51,13 +62,13 @@
 					cart = JSON.parse(cartString);
 				} catch (e) {
 					cart = { products : []};
+					storageService.setItem(storageType, cartidentifier, JSON.stringify(cart));
 				}
 			} else {
 				cart = { products : []};
+				storageService.setItem(storageType, cartidentifier, JSON.stringify(cart));
 			}
-			storageService.setItem(storageType, cartidentifier, JSON.stringify(cart));
 			return cart;
-
 		}
 
 		function getProductFromCart(cart, product) {

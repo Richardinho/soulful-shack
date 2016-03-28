@@ -4,6 +4,11 @@ var users = [
 		email : 'test@test.com',
 		password : 'pass',
 		firstName : 'tester'
+	},
+	{
+		email : 'rich',
+		password : 'rich',
+		firstName : 'Richard'
 	}
 ];
 

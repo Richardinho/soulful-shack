@@ -10,7 +10,7 @@
 	</div>
 	<ul class='order-list'>
 		<li class='order-item clearfix' ng-repeat='record in products'>
-		<h3>{{ record.artist }} {{ record.Name }}</h3>
+		<h3>{{ record.artist }} | {{ record.Name }}</h3>
 		<img class='big-image' ng-src='{{ record.ImageUrl}}' alt='{{ record.Name}}'>
 		<div class='order-info'>
 			<div class='order-price'>{{ record.MinCost | currency : '£' }}</div>
@@ -25,7 +25,9 @@
 	<div ng-if="products.length > 0" class='order-summary'>
 		total price : {{  totalPrice() | currency : '£' }}
 	</div>
-	<button ng-if='user.signedIn && products.length > 0' class='cta' ng-click='checkout()'>checkout</button>
+	<div ng-if='user.signedIn && products.length > 0' class='checkout-button-container'>
+		<button ng-click='checkout()'>confirm order</button>
+	</div>
 	<p ng-if='!user.signedIn'>
 		You can add items to your cart as an anonymous user but
 		you must be signed in to be able to place an order.
