@@ -6,6 +6,9 @@
 .filters li {
 	margin-bottom : 12px;
 }
+.menu h2 {
+	font-size : 18px;
+}
 .filters h3 {
 	margin : 0;
 	font-weight : normal;

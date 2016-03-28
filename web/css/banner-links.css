@@ -5,6 +5,7 @@
 	text-align : right;
 	border-top : solid 10px grey;
 	border-bottom : solid 2px black;
+	position : relative;
 }
 
 .banner-links span, .banner-links a {
@@ -58,4 +59,29 @@ a.checkout-link:hover svg {
 }
 a.checkout-link svg {
 	fill : white;
+}
+
+.banner-links .welcome {
+	position : absolute;
+	top : 0;
+	left : 0;
+	font-family : Ubuntu;
+	color : deeppink;
+	font-size : 20px;
+}
+
+.banner-links .welcome img {
+	width : 75px;
+	height : 75px;
+	display : inline-block;
+	vertical-align : top;
+
+}
+.banner-links .welcome span {
+	padding-left : 12px;
+	line-height : 75px;
+}
+.banner-links .welcome strong {
+	color : black;
+	font-weight : bold;
 }
