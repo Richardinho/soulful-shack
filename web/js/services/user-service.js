@@ -39,10 +39,14 @@
 			};
 			return $http.post('/api/register', formData, options).then(function (response) {
 				var _user = response.data.user;
-				_user.signedIn = true;
-				$rootScope.user = _user;
-      	window.sessionStorage.setItem('user', JSON.stringify(_user));
-				return _user;
+				if(_user) {
+					_user.signedIn = true;
+					$rootScope.user = _user;
+	        window.sessionStorage.setItem('user', JSON.stringify(_user));
+					return _user;
+				} else {
+					return false;
+				}
 			}).catch(function () {
 				console.log('error occurred')
 			});

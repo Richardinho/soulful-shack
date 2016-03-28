@@ -48,7 +48,6 @@ apiRouter.post('/order', function (request, response){
 apiRouter.post('/register', upload.single('avatar'), function (request, response) {
 	userService.registerUser(request.body, request.file).then(function(user){
 
-		console.log(request.body);
 		response.json({ success : true, user : user });
 	}).catch(function() {
 		console.log('something went wrong');

@@ -3,7 +3,8 @@
 .banner-links {
 	padding : 12px;
 	text-align : right;
-	border-bottom : solid 1px green;
+	border-top : solid 10px grey;
+	border-bottom : solid 2px black;
 }
 
 .banner-links span, .banner-links a {

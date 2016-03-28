@@ -9,9 +9,9 @@
 			<label for='password'>password</label>
 			<input id='password' type='password' name='password' ng-model='user.password'>
 		</div>
-		<button type='submit' ng-click='signin(signInForm)' >Sign in</button>
+		<button id='sign-in-submit' type='submit' ng-click='signin(signInForm)' >Sign in</button>
 		<div ng-show='signInForm.$pristine && showErrorMessage'>
-			<h3 class='flash-message'>You could not be found in our database</h3>
+			<h3 id='sign-in-flash-message' class='flash-message'>You could not be found in our database</h3>
 			<div class='password-recovery-links'>
 				<a ui-sref='register'>register</a>
 				<a href='#'>forgotten login details?</a>

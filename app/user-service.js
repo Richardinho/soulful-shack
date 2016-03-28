@@ -1,9 +1,14 @@
 
-var users = [];
+var users = [
+	{
+		email : 'test@test.com',
+		password : 'pass',
+		firstName : 'tester'
+	}
+];
 
 function registerUser(userData, file){
 	return new Promise(function(resolve, reject){
-	console.log('banana', file.filename)
 		if(file && file.filename) {
 			userData.avatarFileName = file.filename;
 		}

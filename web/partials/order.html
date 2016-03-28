@@ -26,5 +26,8 @@
 		total price : {{  totalPrice() | currency : '£' }}
 	</div>
 	<button ng-if='user.signedIn && products.length > 0' class='cta' ng-click='checkout()'>checkout</button>
-	<p ng-if='!user.signedIn'>You must be signed in to be able to place an order</p>
+	<p ng-if='!user.signedIn'>
+		You can add items to your cart as an anonymous user but
+		you must be signed in to be able to place an order.
+	</p>
 </div>

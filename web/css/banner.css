@@ -1,6 +1,6 @@
 .banner {
 	padding : 20px 12px;
-	border-bottom : solid 2px orange;
+	background-color : lightyellow;
 }
 
 .banner .logo {
