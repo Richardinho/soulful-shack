@@ -28,6 +28,10 @@ describe('sign in journey', function () {
 				var errorMessage = element(by.id('sign-in-flash-message'));
 
 				expect(errorMessage.getText()).toEqual('You could not be found in our database');
+
+				browser.executeScript("return window.sessionStorage.getItem('user');").then(function (user) {
+					expect(user).toBeFalsy();
+				});
 			});
 		});
 	});
@@ -49,7 +53,12 @@ describe('sign in journey', function () {
 				// and that the profile link contains the users firstName
 				expect(element(by.id('profile-link-text')).getText()).toBe(REGISTERED_USER_FIRST_NAME);
 
+				browser.executeScript("return window.sessionStorage.getItem('user');").then(function (user) {
+					var user = JSON.parse(user);
+					expect(user.signedIn).toBe(true);
+				});
 			});
 		});
 	});
+
 });

@@ -25,7 +25,7 @@
 		function registerUser(user){
 			var formData = new FormData();
 			formData.append('firstName', user.firstName);
-			formData.append('lastName', user.secondName);
+			formData.append('secondName', user.secondName);
 			formData.append('address1', user.address1);
 			formData.append('address2', user.address2);
 			formData.append('city', user.city);
