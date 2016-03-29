@@ -3,11 +3,11 @@ describe('sign in journey', function () {
 	//  hardcoded in database
 
 	var REGISTERED_USER_EMAIL = 'test@test.com';
-	var REGISTERED_USER_PASSWORD = 'pass';
+	var REGISTERED_USER_PASSWORD = 'password';
 	var REGISTERED_USER_FIRST_NAME = 'tester';
 
 	var NON_REGISTERED_USER_EMAIL = 'non-existent-user';
-	var NON_REGISTERED_USER_PASSWORD = 'password';
+	var NON_REGISTERED_USER_PASSWORD = 'pass';
 
 	beforeEach(function () {
 		browser.get('http://localhost:5000/sign-in?nextpage=records.summaries');

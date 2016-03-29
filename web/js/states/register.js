@@ -22,11 +22,18 @@
 
 					$scope.submit = function () {
 						userService.registerUser($scope.user)
-							.then(function () {
+							.then(response => {
+								if(response){
 									$state.go('records.summaries');
-								}).catch(function () {
-									console.log('error');
-								});
+								} else {
+									console.log('you are not signed in!');
+									// todo: After registering should not sign user in, but send an
+									// and email in which either there will be a confirmation link
+									//  or a password reset link if they are already registered.
+								}
+							}).catch(error => {
+								console.log('error', error);
+							});
 					};
 				}]
 			});

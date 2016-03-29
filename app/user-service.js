@@ -1,4 +1,5 @@
-
+// deprecate. now using Mongo
+// possibly use for stub server tests?
 var users = [
 	{
 		email : 'test@test.com',

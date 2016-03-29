@@ -1,6 +1,7 @@
 describe('registration journey', function () {
 
 	var RegistrationPage = require("./page-objects/registration-page.js");
+	var deleteUser = require('./delete-user');
 	var registrationPage;
 
 	var userFirstName = 'Richard';
@@ -9,16 +10,20 @@ describe('registration journey', function () {
 	var userAddress1 = '12 Every Lane';
 	var userAddress2 = 'Coffee Street';
 	var userCity = 'New York';
-	var userEmail = 'rich@richard.com';
+	var userEmail = 'richghgy@richard.com';
 	var userTelephone = '12345';
 
 	beforeEach(function () {
 		registrationPage = new RegistrationPage();
 		registrationPage.get();
 	});
+	afterEach(function () {
+		deleteUser(userEmail);
+	});
 
 	describe('When user fills in registration form', function () {
 		it('should register user and sign him in, storing user data in session storage', function () {
+
 			registrationPage.firstName(userFirstName);
 			registrationPage.secondName(userSecondName);
 			registrationPage.password(userPassword);
@@ -28,9 +33,11 @@ describe('registration journey', function () {
 			registrationPage.email(userEmail);
 			registrationPage.telephone(userTelephone);
       registrationPage.submit();
-
+      browser.waitForAngular();
 			browser.executeScript("return window.sessionStorage.getItem('user');").then(function (userString) {
+
 				var user = JSON.parse(userString);
+
 				expect(user.firstName).toBe(userFirstName);
 				expect(user.secondName).toBe(userSecondName);
 				expect(user.address1).toBe(userAddress1);
@@ -39,8 +46,7 @@ describe('registration journey', function () {
 				expect(user.email).toBe(userEmail);
 				expect(user.telephone).toBe(userTelephone);
 				expect(user.signedIn).toBe(true);
-
-				// todo:  should verify that we return to previous page we were at
+					// todo:  should verify that we return to previous page we were at
 			});
 		});
 	});

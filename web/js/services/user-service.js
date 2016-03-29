@@ -45,6 +45,7 @@
 	        window.sessionStorage.setItem('user', JSON.stringify(_user));
 					return _user;
 				} else {
+					console.log('a problem resulted')
 					return false;
 				}
 			}).catch(function () {
