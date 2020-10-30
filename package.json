@@ -12,7 +12,7 @@
     "@angular/router": "^0.2.0",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
-    "mongoose": "^4.4.10",
+    "mongoose": "^5.7.5",
     "mongoose-unique-validator": "^1.0.2",
     "multer": "^1.1.0",
     "underscore": "^1.8.3"
