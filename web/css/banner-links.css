@@ -40,6 +40,7 @@ a.banner-link:hover {
 	color : orange;
 	background : black;
 }
+
 a.banner-link:hover svg {
 	fill : orange;
 }
@@ -47,16 +48,17 @@ a.banner-link:hover svg {
 a.checkout-link {
 	background : hsl(128 , 76%, 58%);
 	color : white;
-
 }
+
 a.checkout-link:hover {
 	background : hsl(128 , 62%, 58%);
 	color : white;
-
 }
+
 a.checkout-link:hover svg {
 	fill : white;
 }
+
 a.checkout-link svg {
 	fill : white;
 }
@@ -75,12 +77,13 @@ a.checkout-link svg {
 	height : 75px;
 	display : inline-block;
 	vertical-align : top;
-
 }
+
 .banner-links .welcome span {
 	padding-left : 12px;
 	line-height : 75px;
 }
+
 .banner-links .welcome strong {
 	color : black;
 	font-weight : bold;

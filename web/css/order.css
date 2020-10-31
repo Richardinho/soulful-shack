@@ -27,7 +27,6 @@
 	font-size : 40px;
 	font-weight : bold;
 	margin-bottom : 12px;
-
 }
 
 .order-summary {
@@ -43,6 +42,7 @@
 	float : right;
 	font-size : 30px;
 }
+
 .checkout-button-container button {
 	padding : 12px 24px;
 }

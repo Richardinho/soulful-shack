@@ -3,3 +3,12 @@
 	padding : 12px;
 	color : white;
 }
+
+.copy-right-symbol,
+.copy-right-text {
+  display: inline-block;
+}
+
+.copy-right-symbol {
+  margin-right: 4px;
+}

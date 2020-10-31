@@ -3,24 +3,30 @@
 	float : left;
 	padding : 12px;
 }
+
 .filters li {
 	margin-bottom : 12px;
 }
+
 .menu h2 {
 	font-size : 18px;
 }
+
 .filters h3 {
 	margin : 0;
 	font-weight : normal;
 	font-size : 16px;
 	margin-bottom : 12px;
 }
+
 .styled-radio-block {
 	margin-bottom : 6px;
 }
+
 .styled-radio-block > * {
 	vertical-align : middle;
 }
+
 .styled-radio-block .styled-radio {
 	background : white;
 	width : 20px;

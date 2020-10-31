@@ -6,12 +6,13 @@ var bodyParser = require('body-parser');
 var config;
 
 if(process.argv[2] && process.argv[2] === 'test') {
-	config = require('./test-config');
+  config = require('./test-config');
 } else {
-	config = require('./dev-config');
+  config = require('./dev-config');
 }
 
 mongoose.connect(config.database);
+
 var recordService = require('./app/record-service');
 var userService = require('./app/user-mongo-service');
 var multer  = require('multer');
@@ -25,17 +26,17 @@ app.use('/api', apiRouter);
 
 //  for debugging only remove for production!!!
 app.get('/users', function (request, response, next) {
-	var apples = UserModel.find().then(function (users) {
-		response.json(users);
-	});
+  var apples = UserModel.find().then(function (users) {
+    response.json(users);
+  });
 });
 
 app.get('*', function (request, response) {
-	response.sendFile(__dirname + '/web/index.html');
+  response.sendFile(__dirname + '/web/index.html');
 });
 
 var UserModel = require('./app/models/user');
 
 app.listen(port, function () {
-	console.log('listening on port:', port);
+  console.log('listening on port:', port);
 });

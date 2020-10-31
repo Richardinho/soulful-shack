@@ -3,18 +3,18 @@
 	float : left;
 }
 
-.hotel-summary {
+.record-summary {
 	padding : 6px;
 	border-bottom : solid 1px lightblue;
 	background : white;
 }
 
-.hotel-summary h3 {
+.record-summary h3 {
 	margin : 0;
 	padding : 0;
 }
 
-.hotel-summary h3 a {
+.record-summary h3 a {
 	display : inline-block;
 	padding : 6px 0 ;
 }
