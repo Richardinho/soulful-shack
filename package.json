@@ -12,15 +12,14 @@
     "@angular/router": "^0.2.0",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
+    "jasmine-core": "^3.6.0",
+    "karma": "^5.2.3",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^4.0.1",
     "mongoose": "^5.10.11",
     "mongoose-unique-validator": "^1.0.2",
     "multer": "^1.1.0",
     "underscore": "^1.8.3"
   },
-  "devDependencies": {
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.22",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-jasmine": "^0.3.8"
-  }
+  "devDependencies": {}
 }
