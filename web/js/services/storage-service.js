@@ -1,7 +1,5 @@
 +function (app) {
-
 	'use strict';
-
 
 	app.factory('storageService', [function () {
 
@@ -23,6 +21,7 @@
 					}
 				}
 			},
+
 			getItem : function (type, key) {
 				if(type === LOCAL) {
 					return ls.getItem(key);
@@ -34,6 +33,7 @@
 					}
 				}
 			},
+
 			removeItem : function(type, key) {
 				if(type === LOCAL) {
 					ls.removeItem(key);
@@ -45,6 +45,7 @@
 					}
 				}
 			},
+
 			clear: function(type, key) {
 				if(type === LOCAL) {
 					ls.clear();
@@ -56,6 +57,7 @@
 					}
 				}
 			},
+
 			getLength : function(type) {
 				if(type === LOCAL) {
 					return ls.length;

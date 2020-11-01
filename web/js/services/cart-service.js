@@ -1,11 +1,10 @@
 +function (app) {
-
 	'use strict';
 
 	var ANONYMOUS_CART = 'anonymouscart';
 	var USER_CART = 'usercart';
 
-//todo: work out exact business rules for dealing with carts
+  //todo: work out exact business rules for dealing with carts
 	app.factory('cartService', ['storageService', function (storageService) {
 
 		//  public
@@ -25,6 +24,7 @@
 			//  important to remove duplicates and simply increment quantity in target product
 			anonymousCartProducts.forEach(function (product) {
 				var userCartProduct = getProductFromCart(userCart, product);
+
 				if(userCartProduct) {
 					userCartProduct.quantity = userCartProduct.quantity + product.quantity;
 				} else {
@@ -68,6 +68,7 @@
 				cart = { products : []};
 				storageService.setItem(storageType, cartidentifier, JSON.stringify(cart));
 			}
+
 			return cart;
 		}
 
@@ -81,6 +82,7 @@
 			var cart;
 			var cartItem = _createCartItem(product);
 			var cartString = storageService.getItem(storageType, storageKey);
+
 			if(cartString) {
 				try {
 					cart = JSON.parse(cartString);
@@ -105,6 +107,7 @@
 					products : [cartItem]
 				}
 			}
+
 			storageService.setItem(storageType, storageKey, JSON.stringify(cart));
 		}
 

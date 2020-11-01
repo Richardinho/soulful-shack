@@ -1,12 +1,22 @@
 describe('avatar preview directive', function () {
-
 	var $compile, $rootScope, spyOnGetDataUrl,  spyOnIsImage, element;
 
-	beforeEach(module('soulful-shack'));
+	beforeEach(module('soulful-shack', function ($provide) {
+     // this seems to be the way to inject mocks, although it's not particularly well documented
+     $provide.value('recordsService', {
+       getRecordSummaries: function () {
+         return Promise.resolve([]);
+       },
+       getRecord: function () {
+         return Promise.resolve({});
+       },
+     });
+  }));
 
 	var imageFile = {
 		image : true
 	}
+
 	var nonImageFile = {
 		image : false
 	}
@@ -19,11 +29,13 @@ describe('avatar preview directive', function () {
 	beforeEach(inject(function (fileUploadService, $q) {
 		spyOnGetDataUrl = spyOn(fileUploadService, 'getDataURL');
 		spyOnIsImage = spyOn(fileUploadService, 'isImage');
+
 		spyOnGetDataUrl.and.callFake(function () {
 			var deferred = $q.defer();
 			deferred.resolve('stub-data-url');
 			return deferred.promise;
 		});
+
 		spyOnIsImage.and.callFake(function (file) {
       return file.image;
     });
@@ -31,21 +43,24 @@ describe('avatar preview directive', function () {
 
 	describe('when scope.user.avatarFile is NOT an image', function () {
 		beforeEach(function () {
-			$rootScope.user = { avatarFile : nonImageFile};
+			$rootScope.user = { avatarFile : nonImageFile };
 			element = $compile("<div avatar-preview imagefile='user.avatarFile'></div>")($rootScope);
 			$rootScope.$digest();
 		});
+
 		it('should NOT populate element with an image', function() {
 			var image = element.find('img');
 			expect(image.length).toBe(0);
 		});
 	});
+
 	describe('when scope.user.avatarFile is an image', function () {
 		beforeEach(function () {
 			$rootScope.user = { avatarFile : imageFile};
 			element = $compile("<div avatar-preview imagefile='user.avatarFile'></div>")($rootScope);
       $rootScope.$digest();
 		});
+
 		it('should populate element with an image', function() {
 			var image = element.find('img');
 			expect(image.length).toBe(1);

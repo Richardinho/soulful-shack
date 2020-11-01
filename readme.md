@@ -18,6 +18,6 @@ https://www.iditect.com/how-to/58353303.html
 ## Techstack
 * AngularJS
 * Mongoose
-* karma
+* Karma
 * Jasmine
-* express
+* Express

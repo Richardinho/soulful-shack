@@ -3,9 +3,9 @@
 	'use strict';
 
 	/*
-		creates object for populating filters. The idea is that this will be populated from
-		data returned from the server on each request
-	*/
+	 *  creates object for populating filters. The idea is that this will be populated from
+	 *  data returned from the server on each request
+	 */
 
 	app.factory('createRefinements', [function () {
 		return function (data, page) {

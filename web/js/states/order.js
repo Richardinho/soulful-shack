@@ -12,11 +12,13 @@
 				controller : function ($scope, $state, orderService, cartService, $rootScope) {
 					var cart;
 					var user = $rootScope.user || {};
+
 					if(user.signedIn) {
 						cart = cartService.getUserCart();
 					} else {
 						cart = cartService.getAnonymousUserCart();
 					}
+
 					$scope.products= (cart && cart.products) || [];
 
 					$scope.totalPrice = function () {

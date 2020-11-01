@@ -1,5 +1,6 @@
 +function (app){
 	'use strict';
+
 	app.factory('recordsService', ['$http', function ($http) {
 
 		function getRecordSummaries(filters) {
@@ -8,6 +9,7 @@
 			var userRating = filters.userrating;
 			var stars = filters.stars;
 			var sortby = filters.sortby;
+
 			return $http.get('/api/records/' + page + '/' + minCost + '/' + userRating + '/' + stars + '/' + sortby);
 		}
 

@@ -24,6 +24,7 @@
 
 		function registerUser(user){
 			var formData = new FormData();
+
 			formData.append('firstName', user.firstName);
 			formData.append('secondName', user.secondName);
 			formData.append('address1', user.address1);
@@ -33,16 +34,22 @@
 			formData.append('password', user.password);
 			formData.append('telephone', user.telephone);
 			formData.append('avatar', user.avatarFile);
+
 			var options = {
 				transformRequest: angular.identity,
 				headers: {'Content-Type': undefined}
 			};
+
 			return $http.post('/api/register', formData, options).then(function (response) {
 				var _user = response.data.user;
-				if(_user) {
+
+				if (_user) {
 					_user.signedIn = true;
+
 					$rootScope.user = _user;
+
 	        window.sessionStorage.setItem('user', JSON.stringify(_user));
+
 					return _user;
 				} else {
 					console.log('a problem resulted')
@@ -52,14 +59,17 @@
 				console.log('error occurred')
 			});
 		}
+
 		/*
-			connect to server and check if email and password
-			combination represent a registered user.
-			If so, return him, otherwise return false and allow calling code to deal with this.
-		*/
+		 *  connect to server and check if email and password
+		 *  combination represent a registered user.
+		 *  If so, return him, otherwise return false and allow calling code to deal with this.
+		 */
+
 		function signIn(email, password ) {
 			// remove any existing user data
 			signOut();
+
 			return $http.post('/api/signin', {
 				email : email,
 				password : password

@@ -17,17 +17,18 @@
 						$scope, $rootScope, $state, recordDetail, userService, cartService, $window){
 
 					$scope.recordDetail = recordDetail.data;
+
 					$scope.goBack = function () {
 						$window.history.back();
 					};
 
 					$scope.addToCart = function(id) {
-
 						if($rootScope.user.signedIn){
 							cartService.addItemToUserCart($scope.recordDetail);
 						} else {
 							cartService.addItemToAnonymousCart($scope.recordDetail);
 						}
+
 						$state.go('order');
 					}
 				}]

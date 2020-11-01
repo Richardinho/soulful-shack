@@ -1,9 +1,7 @@
 +function() {
-
 	'use strict';
 
 	var app = angular.module('soulful-shack', ['ui.router', 'ngMessages', 'ngAnimate']);
-
 
 	app.controller('MainCtrl', ['$rootScope', 'userService','$scope', '$state',
 		function($rootScope, userService, $scope, $state) {
@@ -25,6 +23,5 @@
 		// default path
 		$urlRouterProvider.otherwise('/records/summaries');
 	}]);
-
 }();
 

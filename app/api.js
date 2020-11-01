@@ -38,10 +38,11 @@ module.exports = function(express, config, recordService, userService, multer) {
 	});
 
 	/*
-		todo: We should send out an email in response to registration which asks the user to click on a link
-		to confirm their registration. If they are already registered, it will simply give a link for them
-		to reset their password if they wish.
-	*/
+   *  todo: We should send out an email in response to registration which asks the user to click on a link
+   *  to confirm their registration. If they are already registered, it will simply give a link for them
+   *  to reset their password if they wish.
+   */
+
 	apiRouter.post('/register', upload.single('avatar'), function (request, response) {
 		userService.registerUser(request.body, request.file).then(user => {
 			response.json({ success : true, user : user });

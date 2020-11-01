@@ -8,7 +8,7 @@
 
 	function createUrlParamsFromFilters(filters, page) {
 		var pageNumber;
-		if(page) {
+		if (page) {
 			pageNumber = page
 		} else {
 			pageNumber = filters.page;
@@ -24,7 +24,6 @@
 	}
 
 	app.config(['$stateProvider', function($stateProvider) {
-
 		$stateProvider
 			.state('records.summaries', {
 				url : '/summaries',

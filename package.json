@@ -1,15 +1,18 @@
 {
   "name": "soulfulshack",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Example ecommerce app using AngularJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start"
   },
-  "author": "",
+  "author": "Richard Hunter",
   "license": "ISC",
   "dependencies": {
-    "@angular/router": "^0.2.0",
+    "angular": "^1.8.2",
+    "angular-animate": "^1.8.2",
+    "angular-messages": "^1.8.2",
+    "angular-ui-router": "^1.0.28",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "jasmine-core": "^3.6.0",
@@ -21,5 +24,7 @@
     "multer": "^1.1.0",
     "underscore": "^1.8.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "angular-mocks": "^1.8.2"
+  }
 }

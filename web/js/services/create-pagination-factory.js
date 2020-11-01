@@ -13,6 +13,7 @@
 				var links = [];
 
 				var c = first;
+
 				while(c <= last) {
 					links.push({
 						text : c,

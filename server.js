@@ -5,7 +5,7 @@ var port = process.env.PORT || 5000;
 var bodyParser = require('body-parser');
 var config;
 
-if(process.argv[2] && process.argv[2] === 'test') {
+if (process.argv[2] && process.argv[2] === 'test') {
   config = require('./test-config');
 } else {
   config = require('./dev-config');
@@ -15,13 +15,18 @@ mongoose.connect(config.database);
 
 var recordService = require('./app/record-service');
 var userService = require('./app/user-mongo-service');
-var multer  = require('multer');
+var multer = require('multer');
 
 var apiRouter = require('./app/api')(express, config, recordService, userService, multer);
 
-
 app.use(bodyParser.json());
+
 app.use(express.static(__dirname + '/web'));
+app.use(express.static(__dirname + '/node_modules/angular'));
+app.use(express.static(__dirname + '/node_modules/angular-messages'));
+app.use(express.static(__dirname + '/node_modules/angular-animate'));
+app.use(express.static(__dirname + '/node_modules/angular-ui-router/release'));
+
 app.use('/api', apiRouter);
 
 //  for debugging only remove for production!!!
