@@ -22,7 +22,7 @@
     "mongoose": "^5.10.11",
     "mongoose-unique-validator": "^1.0.2",
     "multer": "^1.1.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.8.2"
