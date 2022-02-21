@@ -1,20 +1,20 @@
 .record-detail {
-	padding : 12px;
-	background : white;
-	border-top : solid 1px black;
-	background-color : blanchedalmond;
+	padding: 12px;
+	background: white;
+	border-top: solid 1px black;
+	background-color: blanchedalmond;
 }
 
 .record-detail .info {
-	line-height : 1.5;
+	line-height: 1.5;
 }
 
 .record-detail .big-image {
-	float : right;
-	border : solid 1px black;
+	float: right;
+	border: solid 1px black;
 }
 
 .record-detail button {
-	margin-top : 24px;
-	margin-bottom 24px;
+	margin-top: 24px;
+	margin-bottom: 24px;
 }

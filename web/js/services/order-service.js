@@ -1,16 +1,16 @@
-+function(app){
++(function (app) {
+	"use strict";
 
-	'use strict';
+	app.factory("orderService", [
+		"$http",
+		function ($http) {
+			function submitOrder(order) {
+				return $http.post("/api/order", order);
+			}
 
-	app.factory('orderService', ['$http', function ($http) {
-
-		function submitOrder(order) {
-			return $http.post('/api/order', order);
-		}
-
-		return {
-			submitOrder : submitOrder
-		};
-	}]);
-
-}(angular.module('soulful-shack'));
+			return {
+				submitOrder: submitOrder,
+			};
+		},
+	]);
+})(angular.module("soulful-shack"));

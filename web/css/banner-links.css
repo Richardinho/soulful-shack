@@ -1,90 +1,90 @@
-
 /* banner links section */
 .banner-links {
-	padding : 12px;
-	text-align : right;
-	border-top : solid 10px grey;
-	border-bottom : solid 2px black;
-	position : relative;
+	padding: 12px;
+	text-align: right;
+	border-top: solid 10px grey;
+	border-bottom: solid 2px black;
+	position: relative;
 }
 
-.banner-links span, .banner-links a {
-	display : inline-block;
+.banner-links span,
+.banner-links a {
+	display: inline-block;
 }
 
 .banner-links a {
-	text-decoration : none;
-	margin-right : 2px;
+	text-decoration: none;
+	margin-right: 2px;
 }
 
 .banner-link svg {
-	vertical-align : middle;
+	vertical-align: middle;
 }
 .banner-link {
-	line-height : 25px;
+	line-height: 25px;
 }
 
 a.banner-link {
-	color : black;
-	background : orange;
-	padding : 12px 18px;
-	font-family : Ubuntu;
-	border-radius : 10px;
+	color: black;
+	background: orange;
+	padding: 12px 18px;
+	font-family: Ubuntu;
+	border-radius: 10px;
 }
 
-a.banner-link svg{
-	fill : black;
+a.banner-link svg {
+	fill: black;
 }
 
 a.banner-link:hover {
-	color : orange;
-	background : black;
+	color: orange;
+	background: black;
 }
 
 a.banner-link:hover svg {
-	fill : orange;
+	fill: orange;
 }
 
 a.checkout-link {
-	background : hsl(128 , 76%, 58%);
-	color : white;
+	background: hsl(128, 76%, 58%);
+	color: white;
 }
 
 a.checkout-link:hover {
-	background : hsl(128 , 62%, 58%);
-	color : white;
+	background: hsl(128, 62%, 58%);
+	color: white;
 }
 
 a.checkout-link:hover svg {
-	fill : white;
+	fill: white;
 }
 
 a.checkout-link svg {
-	fill : white;
+	fill: white;
 }
 
 .banner-links .welcome {
-	position : absolute;
-	top : 0;
-	left : 0;
-	font-family : Ubuntu;
-	color : deeppink;
-	font-size : 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-family: Ubuntu;
+	color: deeppink;
+	font-size: 20px;
 }
 
 .banner-links .welcome img {
-	width : 75px;
-	height : 75px;
-	display : inline-block;
-	vertical-align : top;
+	width: 75px;
+	height: 75px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .banner-links .welcome span {
-	padding-left : 12px;
-	line-height : 75px;
+	padding-left: 12px;
+	line-height: 75px;
 }
 
 .banner-links .welcome strong {
-	color : black;
-	font-weight : bold;
+	color: black;
+	font-weight: bold;
 }

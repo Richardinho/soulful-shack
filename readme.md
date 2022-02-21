@@ -1,7 +1,6 @@
-#  Ecommerce Demonstration App using AngularJS, Mongo, and Express
+# Ecommerce Demonstration App using AngularJS, and Express
 
-A demo app written in AngularJS (the first version of Angular), with a Mongo database and Express server.
-
+A demo app written in AngularJS (the first version of Angular) with an Express server.
 
 ```
   //  to install node dependencies
@@ -11,13 +10,10 @@ A demo app written in AngularJS (the first version of Angular), with a Mongo dat
   node server.js
 
 ```
-### Installing Mongodb
-I had problems installing Mongodb using Homebrew. It seems like there's been issues because MongoDB has become a commercial product. This link explains things:
-https://www.iditect.com/how-to/58353303.html
 
 ## Techstack
-* AngularJS
-* Mongoose
-* Karma
-* Jasmine
-* Express
+
+- AngularJS
+- Karma
+- Jasmine
+- Express

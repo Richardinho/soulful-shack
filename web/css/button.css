@@ -1,22 +1,22 @@
 button {
-	border : none;
-	padding : 6px 12px;
-	text-transform : uppercase;
-	border-radius : 5px;
-	background : deepskyblue;
-	color : white;
-	outline : none;
+	border: none;
+	padding: 6px 12px;
+	text-transform: uppercase;
+	border-radius: 5px;
+	background: deepskyblue;
+	color: white;
+	outline: none;
 }
 
 button:hover {
-	background : cornflowerblue;
+	background: cornflowerblue;
 }
 
 button.cta {
-	background : limegreen;
-	color : white;
+	background: limegreen;
+	color: white;
 }
 
 button.cta:hover {
-	background : forestgreen;
+	background: forestgreen;
 }

@@ -1,11 +1,10 @@
-
 .sign-in-page {
-	padding : 12px;
-	text-align : center;
-	padding-bottom : 24px;
-	background : lightgoldenrodyellow;
+	padding: 12px;
+	text-align: center;
+	padding-bottom: 24px;
+	background: lightgoldenrodyellow;
 }
 
 .password-recovery-links {
-	padding : 12px 0;
+	padding: 12px 0;
 }

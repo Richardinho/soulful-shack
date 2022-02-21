@@ -1,19 +1,23 @@
-<ul class='hotels-summary-list'>
-	<li ng-repeat='rec in recordDetails'>
+<ul class="hotels-summary-list">
+	<li ng-repeat="rec in recordDetails">
 		<div class="media record-summary">
-			<a ui-sref='rec({ id : rec.id })' class="img">
-				<img ng-src='{{rec.ThumbnailUrl}}' alt='{{  rec.Name }}'>
+			<a ui-sref="rec({ id : rec.id })" class="img">
+				<img ng-src="{{rec.ThumbnailUrl}}" alt="{{  rec.Name }}" />
 			</a>
 			<div class="bd">
-				<h3><a ui-sref='record({ id : rec.id })'>{{  rec.Name }}, {{ rec.artist }}</a></h3>
-				<div class='rating'>
-					<ul class='stars'>
-						<li ng-repeat='star in getStars(rec.Stars)'></li>
+				<h3>
+					<a ui-sref="record({ id : rec.id })"
+						>{{ rec.Name }}, {{ rec.artist }}</a
+					>
+				</h3>
+				<div class="rating">
+					<ul class="stars">
+						<li ng-repeat="star in getStars(rec.Stars)"></li>
 					</ul>
-					<div class='add-info'>catalog number : {{  rec.catalogNumber }}
-						| price : {{  rec.minCost | currency : '£' }}
-						| label : {{  rec.label }}
-						| year : {{  rec.year }}
+					<div class="add-info">
+						catalog number : {{ rec.catalogNumber }} | price : {{ rec.minCost |
+						currency : '£' }} | label : {{ rec.label }} | year : {{ rec.year }}
+					</div>
 				</div>
 			</div>
 		</div>

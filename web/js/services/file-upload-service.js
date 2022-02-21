@@ -1,37 +1,37 @@
-+function (app) {
++(function (app) {
+	"use strict";
 
-	'use strict';
-
-	app.factory('fileUploadService', ['$q', function ($q) {
-
-		function openFileDialogBox(selector) {
-			var fileInput = document.querySelector(selector);
-			fileInput.click();
-		}
-
-		//todo: check that file is an image
-		function isImage(object){
-			return object instanceof File;
-		}
-
-		function getDataURL (file) {
-			var deferred = $q.defer();
-			var reader = new FileReader();
-
-			reader.onload = function(e) {
-				deferred.resolve(e.target.result);
+	app.factory("fileUploadService", [
+		"$q",
+		function ($q) {
+			function openFileDialogBox(selector) {
+				var fileInput = document.querySelector(selector);
+				fileInput.click();
 			}
 
-			reader.readAsDataURL(file);
+			//todo: check that file is an image
+			function isImage(object) {
+				return object instanceof File;
+			}
 
-			return deferred.promise;
-		}
+			function getDataURL(file) {
+				var deferred = $q.defer();
+				var reader = new FileReader();
 
-		return {
-			openFileDialogBox : openFileDialogBox,
-			getDataURL : getDataURL,
-			isImage : isImage
-		};
-	}]);
+				reader.onload = function (e) {
+					deferred.resolve(e.target.result);
+				};
 
-}(angular.module('soulful-shack'));
+				reader.readAsDataURL(file);
+
+				return deferred.promise;
+			}
+
+			return {
+				openFileDialogBox: openFileDialogBox,
+				getDataURL: getDataURL,
+				isImage: isImage,
+			};
+		},
+	]);
+})(angular.module("soulful-shack"));

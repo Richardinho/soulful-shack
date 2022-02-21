@@ -1,29 +1,28 @@
 .banner {
-	padding : 20px 12px;
-	background-color : lightyellow;
+	padding: 20px 12px;
+	background-color: lightyellow;
 }
 
 .banner .logo {
-	display : inline-block;
-	vertical-align : middle;
-	text-decoration : none;
+	display: inline-block;
+	vertical-align: middle;
+	text-decoration: none;
 }
 
 .banner .logo h1 {
-	font-family : Bangers;
-	margin : 0;
-	font-size : 3em;
+	font-family: Bangers;
+	margin: 0;
+	font-size: 3em;
 }
 
 .the {
-	color : orange;
+	color: orange;
 }
 
 .soulful {
-	color : red;
+	color: red;
 }
 
 .shack {
-	color : brown;
+	color: brown;
 }
-

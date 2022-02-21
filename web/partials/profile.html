@@ -1,22 +1,22 @@
-<div class='profile-page'>
+<div class="profile-page">
 	<div class="media">
-		<div class='avatar imgExt'>
-			<img ng-src='{{ "/avatars/" + user.avatarFileName }}'>
+		<div class="avatar imgExt">
+			<img ng-src='{{ "/avatars/" + user.avatarFileName }}' />
 		</div>
 		<div class="bd">
 			<h3>profile</h3>
-			<div class='rating'>
+			<div class="rating">
 				<dl>
 					<dt>name</dt>
-					<dd>{{  user.firstName + ' ' + user.lastName }}</dd>
+					<dd>{{ user.firstName + ' ' + user.lastName }}</dd>
 					<dt>address</dt>
 					<dd>{{ user.address1 }}</dd>
 					<dd>{{ user.address2 }}</dd>
 					<dd>{{ user.city}}</dd>
 					<dt>email</dt>
-					<dd>{{  user.email }}</dd>
+					<dd>{{ user.email }}</dd>
 					<dt>password</dt>
-					<dd>{{  user.password }}</dd>
+					<dd>{{ user.password }}</dd>
 				</dl>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-<div class='order clearfix'>
+<div class="order clearfix">
 	<div ng-switch="products.length > 0">
 		<div ng-switch-when="true">
 			<h2>Your order</h2>
@@ -7,28 +7,43 @@
 			<h2>Your cart is empty</h2>
 		</div>
 	</div>
-	<ul class='order-list'>
-		<li class='order-item clearfix' ng-repeat='record in products'>
-		<h3>{{ record.artist }} | {{ record.Name }}</h3>
-		<img class='big-image' ng-src='{{ record.ImageUrl}}' alt='{{ record.Name}}'>
-		<div class='order-info'>
-			<div class='order-price'>{{ record.MinCost | currency : '£' }}</div>
-			<div class='total-item-price'>{{ record.MinCost * record.quantity | currency : '£' }}</div>
-			<div class='order-quantity'>
-				<label for='order-quantity'>quantity</label>
-				<input id='order-quantity' ng-model='record.quantity' type='number' min='0' max='10'>
+	<ul class="order-list">
+		<li class="order-item clearfix" ng-repeat="record in products">
+			<h3>{{ record.artist }} | {{ record.Name }}</h3>
+			<img
+				class="big-image"
+				ng-src="{{ record.ImageUrl}}"
+				alt="{{ record.Name}}"
+			/>
+			<div class="order-info">
+				<div class="order-price">{{ record.MinCost | currency : '£' }}</div>
+				<div class="total-item-price">
+					{{ record.MinCost * record.quantity | currency : '£' }}
+				</div>
+				<div class="order-quantity">
+					<label for="order-quantity">quantity</label>
+					<input
+						id="order-quantity"
+						ng-model="record.quantity"
+						type="number"
+						min="0"
+						max="10"
+					/>
+				</div>
 			</div>
-		</div>
 		</li>
 	</ul>
-	<div ng-if="products.length > 0" class='order-summary'>
-		total price : {{  totalPrice() | currency : '£' }}
+	<div ng-if="products.length > 0" class="order-summary">
+		total price : {{ totalPrice() | currency : '£' }}
 	</div>
-	<div ng-if='user.signedIn && products.length > 0' class='checkout-button-container'>
-		<button ng-click='checkout()'>confirm order</button>
+	<div
+		ng-if="user.signedIn && products.length > 0"
+		class="checkout-button-container"
+	>
+		<button ng-click="checkout()">confirm order</button>
 	</div>
-	<p ng-if='!user.signedIn'>
-		You can add items to your cart as an anonymous user but
-		you must be signed in to be able to place an order.
+	<p ng-if="!user.signedIn">
+		You can add items to your cart as an anonymous user but you must be signed
+		in to be able to place an order.
 	</p>
 </div>

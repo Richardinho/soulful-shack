@@ -1,55 +1,55 @@
 .pagination {
-	background : blue;
-	color : white;
-	padding : 6px;
+	background: blue;
+	color: white;
+	padding: 6px;
 }
 .pagination ul {
-	display : inline-block;
+	display: inline-block;
 }
 
 .pagination li {
-	display : inline-block;
-	cursor : pointer;
-	border : solid 1px white;
-	margin-right : 2px;
-	border : solid 1px darkblue;
-	padding : 4px;
-	text-align : center;
-	background-image : linear-gradient(white 0, blue 20%, white);
+	display: inline-block;
+	cursor: pointer;
+	border: solid 1px white;
+	margin-right: 2px;
+	border: solid 1px darkblue;
+	padding: 4px;
+	text-align: center;
+	background-image: linear-gradient(white 0, blue 20%, white);
 }
 
-.pagination li:first-child{
-	border-top-left-radius : 4px;
-	border-bottom-left-radius : 4px;
+.pagination li:first-child {
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
 }
 
-.pagination li:last-child{
-	border-top-right-radius : 4px;
-	border-bottom-right-radius : 4px;
+.pagination li:last-child {
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
 }
 
 .pagination li:hover {
-	background : white;
-	color : blue;
+	background: white;
+	color: blue;
 }
 
 .pagination li:active {
-	position : relative;
-	top : 2px;
+	position: relative;
+	top: 2px;
 }
 
 .pagination li.disabled:active {
-	position : static;
-	top : 0;
+	position: static;
+	top: 0;
 }
 
 .pagination li.disabled {
-	color : blue;
-	background-color : white;
-	background-image : none;
+	color: blue;
+	background-color: white;
+	background-image: none;
 }
 
 .pagination-metadata {
-	display : inline-block;
-	color : white;
+	display: inline-block;
+	color: white;
 }

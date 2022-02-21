@@ -1,20 +1,29 @@
-<div class='sign-in-page'>
+<div class="sign-in-page">
 	<h2>Sign in</h2>
-	<form name='signInForm' novalidate>
-		<div class='input-fields'>
-			<label for='email'>email</label>
-			<input id='email' type='text' name='email' ng-model='user.email'>
+	<form name="signInForm" novalidate>
+		<div class="input-fields">
+			<label for="email">email</label>
+			<input id="email" type="text" name="email" ng-model="user.email" />
 		</div>
-		<div class='input-fields'>
-			<label for='password'>password</label>
-			<input id='password' type='password' name='password' ng-model='user.password'>
+		<div class="input-fields">
+			<label for="password">password</label>
+			<input
+				id="password"
+				type="password"
+				name="password"
+				ng-model="user.password"
+			/>
 		</div>
-		<button id='sign-in-submit' type='submit' ng-click='signin(signInForm)' >Sign in</button>
-		<div ng-show='signInForm.$pristine && showErrorMessage'>
-			<h3 id='sign-in-flash-message' class='flash-message'>You could not be found in our database</h3>
-			<div class='password-recovery-links'>
-				<a ui-sref='register'>register</a>
-				<a href='#'>forgotten login details?</a>
+		<button id="sign-in-submit" type="submit" ng-click="signin(signInForm)">
+			Sign in
+		</button>
+		<div ng-show="signInForm.$pristine && showErrorMessage">
+			<h3 id="sign-in-flash-message" class="flash-message">
+				You could not be found in our database
+			</h3>
+			<div class="password-recovery-links">
+				<a ui-sref="register">register</a>
+				<a href="#">forgotten login details?</a>
 			</div>
 		</div>
 	</form>

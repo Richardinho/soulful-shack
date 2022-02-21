@@ -1,9 +1,9 @@
-+function(app){
++(function (app) {
+	"use strict";
 
-	'use strict';
-
-	angular.module('soulful-shack').factory('createPaginationLinks', [function () {
-		return function (paginationData) {
+	angular.module("soulful-shack").factory("createPaginationLinks", [
+		function () {
+			return function (paginationData) {
 				var totalPages = paginationData.totalPages;
 				var prev = paginationData.prev;
 				var next = paginationData.next;
@@ -14,16 +14,17 @@
 
 				var c = first;
 
-				while(c <= last) {
+				while (c <= last) {
 					links.push({
-						text : c,
-						enabled : (c !== currentPage)
+						text: c,
+						enabled: c !== currentPage,
 					});
 					c++;
 				}
-				links.unshift({ text : 'prev', enabled : prev});
-				links.push({ text : 'next', enabled : next });
+				links.unshift({ text: "prev", enabled: prev });
+				links.push({ text: "next", enabled: next });
 				return links;
-			}
-	}]);
-}();
+			};
+		},
+	]);
+})();

@@ -1,79 +1,79 @@
 .register-page {
-	padding : 12px;
+	padding: 12px;
 }
 
 .register-page .avatar-upload button {
-	margin-left : 30%;
+	margin-left: 30%;
 }
 
 .register-page fieldset {
-  background: cornsilk;
-  padding-top: 47px;
-  position: relative;
-  border-top: solid 8px pink;
+	background: cornsilk;
+	padding-top: 47px;
+	position: relative;
+	border-top: solid 8px pink;
 }
 
 .register-page fieldset legend {
-	font-family : bangers;
+	font-family: bangers;
 	position: absolute;
-  padding: 0;
-  font-size: 24px;
-  color: black;
-  text-transform: uppercase;
-  top: 12px;
-  left: 12px;
-  z-index : 0;
+	padding: 0;
+	font-size: 24px;
+	color: black;
+	text-transform: uppercase;
+	top: 12px;
+	left: 12px;
+	z-index: 0;
 }
 
 .register-page fieldset legend:after {
-	content: '';
-  display: inline-block;
-  left: 5px;
-  top: 8px;
-  right: -5px;
-  bottom: 0px;
-  position: absolute;
-  background-color: orange;
-  z-index: -1;
-  transform: skew(-16deg);
-  box-shadow : 2px 2px 0 0 cornflowerblue;
+	content: "";
+	display: inline-block;
+	left: 5px;
+	top: 8px;
+	right: -5px;
+	bottom: 0px;
+	position: absolute;
+	background-color: orange;
+	z-index: -1;
+	transform: skew(-16deg);
+	box-shadow: 2px 2px 0 0 cornflowerblue;
 }
 
 .input-fields {
-	display : flex;
-	justify-content : flex-start;
+	display: flex;
+	justify-content: flex-start;
 }
 
 .input-fields label {
-	width : 40%;
-	padding-right : 6px;
+	width: 40%;
+	padding-right: 6px;
 }
 
 .input-fields input {
-	width : 20%;
-	padding : 0 6px;
+	width: 20%;
+	padding: 0 6px;
 }
 
-.input-fields  .messages {
-	width : 30%;
-	padding-left : 6px;
+.input-fields .messages {
+	width: 30%;
+	padding-left: 6px;
 }
 
 .register-page .avatar-image-container {
-	padding-left : 30%;
+	padding-left: 30%;
 }
 
 .register-page [avatar-preview] {
-	width : 200px;
+	width: 200px;
 }
 
 .register-page .submit-section {
-  justify-content : flex-end;
-  padding-top: 12px;
-  border-top: none;
-  font-size : 30px;
+	justify-content: flex-end;
+	padding-top: 12px;
+	border-top: none;
+	font-size: 30px;
 }
 
 .register-page .submit-section button {
-  float : right;
+	float: right;
 }

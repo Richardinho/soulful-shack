@@ -1,121 +1,193 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name='viewport' content='width=device-width,initial-scale=1.0'>
-	<title>The Soulful Shack UI Router</title>
-	<link href='/css/normalize.css' rel='stylesheet'>
-	<link href='/css/utils.css' rel='stylesheet'>
-	<link href='/css/forms.css' rel='stylesheet'>
-	<link href='/css/main.css' rel='stylesheet'>
-	<link href='/css/sign-in.css' rel='stylesheet'>
-	<link href='/css/banner.css' rel='stylesheet'>
-	<link href='/css/banner-links.css' rel='stylesheet'>
-	<link href='/css/menu.css' rel='stylesheet'>
-	<link href='/css/content.css' rel='stylesheet'>
-	<link href='/css/confirmation-page.css' rel='stylesheet'>
-	<link href='/css/record-detail.css' rel='stylesheet'>
-	<link href='/css/register.css' rel='stylesheet'>
-	<link href='/css/order.css' rel='stylesheet'>
-	<link href='/css/pagination.css' rel='stylesheet'>
-	<link href='/css/footer.css' rel='stylesheet'>
-	<link href='/css/animate.css' rel='stylesheet'>
-	<link href='/css/button.css' rel='stylesheet'>
-	<link href='/css/profile.css' rel='stylesheet'>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<title>The Soulful Shack UI Router</title>
+		<link href="/css/normalize.css" rel="stylesheet" />
+		<link href="/css/utils.css" rel="stylesheet" />
+		<link href="/css/forms.css" rel="stylesheet" />
+		<link href="/css/main.css" rel="stylesheet" />
+		<link href="/css/sign-in.css" rel="stylesheet" />
+		<link href="/css/banner.css" rel="stylesheet" />
+		<link href="/css/banner-links.css" rel="stylesheet" />
+		<link href="/css/menu.css" rel="stylesheet" />
+		<link href="/css/content.css" rel="stylesheet" />
+		<link href="/css/confirmation-page.css" rel="stylesheet" />
+		<link href="/css/record-detail.css" rel="stylesheet" />
+		<link href="/css/register.css" rel="stylesheet" />
+		<link href="/css/order.css" rel="stylesheet" />
+		<link href="/css/pagination.css" rel="stylesheet" />
+		<link href="/css/footer.css" rel="stylesheet" />
+		<link href="/css/animate.css" rel="stylesheet" />
+		<link href="/css/button.css" rel="stylesheet" />
+		<link href="/css/profile.css" rel="stylesheet" />
 
-	<script src='/angular.js'></script>
-	<script src='/angular-ui-router.js'></script>
-	<script src='/angular-animate.js'></script>
-	<script src='/angular-messages.js'></script>
+		<script src="/angular.js"></script>
+		<script src="/angular-ui-router.js"></script>
+		<script src="/angular-animate.js"></script>
+		<script src="/angular-messages.js"></script>
 
-	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-	<base href="/">
-</head>
-<body ng-app='soulful-shack' ng-controller='MainCtrl'>
-	<script>
-		//window.alert('This is a demo site, not a real ecommerce site!');
-	</script>
-	<div class='container'>
-		<div class='banner-links'>
-			<span ng-switch="user.signedIn">
-				<span ng-switch-when="true" class='welcome'>
-					<img ng-if='user.avatarFileName' ng-src='{{ "/avatars/" + user.avatarFileName }}'>
-					<span>
-					Welcome <strong data-test='index-welcome-text' ng-bind='user.firstName'></strong></span>
+		<link
+			href="https://fonts.googleapis.com/css?family=Bangers"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Ubuntu"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<base href="/" />
+	</head>
+	<body ng-app="soulful-shack" ng-controller="MainCtrl">
+		<div class="container">
+			<div class="banner-links">
+				<span ng-switch="user.signedIn">
+					<span ng-switch-when="true" class="welcome">
+						<img
+							ng-if="user.avatarFileName"
+							ng-src='{{ "/avatars/" + user.avatarFileName }}'
+						/>
+						<span>
+							Welcome
+							<strong
+								data-test="index-welcome-text"
+								ng-bind="user.firstName"
+							></strong
+						></span>
+					</span>
+					<a ng-switch-when="true" ui-sref="profile" class="banner-link">
+						<svg
+							version="1.1"
+							xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink"
+							width="25"
+							height="25"
+							viewBox="0 0 16 16"
+						>
+							<g id="user-profile">
+								<path
+									d="M5 3c0-1.657 1.343-3 3-3s3 1.343 3 3c0 1.657-1.343 3-3 3s-3-1.343-3-3zM12.001 7h-0.553l-3.111 6.316 1.163-5.816-1.5-1.5-1.5 1.5 1.163 5.816-3.111-6.316h-0.554c-1.999 0-1.999 1.344-1.999 3v5h12v-5c0-1.656 0-3-1.999-3z"
+								></path>
+							</g>
+						</svg>
+						<span id="profile-link-text" class="text">profile</span>
+					</a>
+					<a ng-switch-when="true" ng-click="signout()" class="banner-link">
+						<svg
+							version="1.1"
+							xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink"
+							width="25"
+							height="25"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M6 8h-5v-2h5v-2l3 3-3 3zM16 0v13l-6 3v-3h-6v-4h1v3h5v-9l4-2h-9v4h-1v-5z"
+							></path>
+						</svg>
+						<span class="text">sign out</span>
+					</a>
+					<a
+						ng-switch-when="false"
+						ui-sref='signin({ nextpage :"records.summaries" })'
+						class="banner-link"
+					>
+						<svg
+							version="1.1"
+							xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink"
+							width="25"
+							height="25"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M12 10v-2h-5v-2h5v-2l3 3zM11 9v4h-5v3l-6-3v-13h11v5h-1v-4h-8l4 2v9h4v-3z"
+							></path>
+						</svg>
+						<span class="text">sign in</span>
+					</a>
+					<a ng-switch-when="false" ui-sref="register" class="banner-link">
+						<svg
+							class="icon icon-user-plus"
+							x="0"
+							y="0"
+							width="25"
+							height="25"
+							viewBox="0 0 17 17"
+						>
+							<path
+								class="path1"
+								d="M6 11.5c0-2.363 1.498-4.383 3.594-5.159 0.254-0.571 0.406-1.206 0.406-1.841 0-2.485 0-4.5-3-4.5s-3 2.015-3 4.5c0 1.548 0.898 3.095 2 3.716v0.825c-3.392 0.277-6 1.944-6 3.959h6.208c-0.135-0.477-0.208-0.98-0.208-1.5z"
+							></path>
+							<path
+								class="path2"
+								d="M11.5 7c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5c2.485 0 4.5-2.015 4.5-4.5s-2.015-4.5-4.5-4.5zM14 12h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1z"
+							></path>
+						</svg>
+						<span class="text">register</span>
+					</a>
+					<a ui-sref="order" class="checkout-link banner-link">
+						<svg
+							version="1.1"
+							xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink"
+							width="25"
+							height="25"
+							viewBox="0 0 16 16"
+							x="0"
+							y="0"
+						>
+							<g id="checkout-trolly">
+								<path
+									d="M6 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"
+								></path>
+								<path
+									d="M16 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"
+								></path>
+								<path
+									d="M16 8v-6h-12c0-0.552-0.448-1-1-1h-3v1h2l0.751 6.438c-0.458 0.367-0.751 0.93-0.751 1.562 0 1.105 0.895 2 2 2h12v-1h-12c-0.552 0-1-0.448-1-1 0-0.003 0-0.007 0-0.010l13-1.99z"
+								></path>
+							</g>
+						</svg>
+						<span class="text">view cart</span>
+					</a>
 				</span>
-				<a ng-switch-when="true" ui-sref='profile' class='banner-link'>
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 16 16">
-						<g id='user-profile'>
-							<path d="M5 3c0-1.657 1.343-3 3-3s3 1.343 3 3c0 1.657-1.343 3-3 3s-3-1.343-3-3zM12.001 7h-0.553l-3.111 6.316 1.163-5.816-1.5-1.5-1.5 1.5 1.163 5.816-3.111-6.316h-0.554c-1.999 0-1.999 1.344-1.999 3v5h12v-5c0-1.656 0-3-1.999-3z"></path>
-						</g>
-					</svg>
-					<span id='profile-link-text' class='text'>profile</span>
+			</div>
+			<div class="banner">
+				<a href="/" class="logo">
+					<h1>
+						<span class="the">The</span>
+						<span class="soulful"> Soulful</span>
+						<span class="shack"> Shack</span>
+					</h1>
 				</a>
-				<a ng-switch-when="true" ng-click='signout()' class='banner-link'>
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 16 16">
-						<path d="M6 8h-5v-2h5v-2l3 3-3 3zM16 0v13l-6 3v-3h-6v-4h1v3h5v-9l4-2h-9v4h-1v-5z"></path>
-					</svg>
-					<span class='text'>sign out</span>
-				</a>
-				<a ng-switch-when="false" ui-sref='signin({ nextpage :"records.summaries" })' class='banner-link'>
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 16 16">
-						<path d="M12 10v-2h-5v-2h5v-2l3 3zM11 9v4h-5v3l-6-3v-13h11v5h-1v-4h-8l4 2v9h4v-3z"></path>
-					</svg>
-					<span class='text'>sign in</span>
-				</a>
-				<a ng-switch-when='false' ui-sref='register' class='banner-link'>
-					<svg class="icon icon-user-plus" x="0" y="0" width="25" height="25" viewBox="0 0 17 17">
-						<path class="path1" d="M6 11.5c0-2.363 1.498-4.383 3.594-5.159 0.254-0.571 0.406-1.206 0.406-1.841 0-2.485 0-4.5-3-4.5s-3 2.015-3 4.5c0 1.548 0.898 3.095 2 3.716v0.825c-3.392 0.277-6 1.944-6 3.959h6.208c-0.135-0.477-0.208-0.98-0.208-1.5z"></path>
-						<path class="path2" d="M11.5 7c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5c2.485 0 4.5-2.015 4.5-4.5s-2.015-4.5-4.5-4.5zM14 12h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1z"></path>
-					</svg>
-					<span class='text'>register</span>
-				</a>
-				<a ui-sref='order'  class='checkout-link banner-link'>
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 16 16" x="0" y="0">
-						<g id='checkout-trolly'>
-							<path d="M6 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
-							<path d="M16 14.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
-							<path d="M16 8v-6h-12c0-0.552-0.448-1-1-1h-3v1h2l0.751 6.438c-0.458 0.367-0.751 0.93-0.751 1.562 0 1.105 0.895 2 2 2h12v-1h-12c-0.552 0-1-0.448-1-1 0-0.003 0-0.007 0-0.010l13-1.99z"></path>
-						</g>
-					</svg>
-					<span class='text'>view cart</span>
-				</a>
-			</span>
+			</div>
+			<div class="main clearfix" ui-view></div>
+			<div class="footer">
+				<span class="copy-right-symbol">&copy;</span>
+				<span class="copy-right-text">richard hunter 2016</span>
+			</div>
 		</div>
-		<div class='banner'>
-			<a href='/' class='logo'>
-				<h1>
-					<span class='the'>The</span>
-					<span class='soulful'> Soulful</span>
-					<span class='shack'> Shack</span>
-				</h1>
-			</a>
-		</div>
-		<div class='main clearfix' ui-view ></div>
-    <div class='footer'>
-      <span class="copy-right-symbol">&copy;</span>
-      <span class="copy-right-text">richard hunter 2016</span>
-    </div>
-	</div>
-	<script src='/main.js'></script>
-	<script src='js/directives/file.js'></script>
-	<script src='js/directives/avatar-preview.js'></script>
-	<script src='js/services/create-refinements-factory.js'></script>
-	<script src='js/services/create-pagination-factory.js'></script>
-	<script src='js/services/user-service.js'></script>
-	<script src='js/services/records-service.js'></script>
-	<script src='js/services/cart-service.js'></script>
-	<script src='js/services/order-service.js'></script>
-	<script src='js/services/storage-service.js'></script>
-	<script src='js/services/file-upload-service.js'></script>
-	<script src='js/states/sign-in.js'></script>
-	<script src='js/states/record-detail.js'></script>
-	<script src='js/states/order.js'></script>
-	<script src='js/states/confirmation.js'></script>
-	<script src='js/states/abstract-records.js'></script>
-	<script src='js/states/records.js'></script>
-	<script src='js/states/register.js'></script>
-	<script src='js/states/profile.js'></script>
-</body>
+		<script src="/main.js"></script>
+		<script src="js/directives/file.js"></script>
+		<script src="js/directives/avatar-preview.js"></script>
+		<script src="js/services/create-refinements-factory.js"></script>
+		<script src="js/services/create-pagination-factory.js"></script>
+		<script src="js/services/user-service.js"></script>
+		<script src="js/services/records-service.js"></script>
+		<script src="js/services/cart-service.js"></script>
+		<script src="js/services/order-service.js"></script>
+		<script src="js/services/storage-service.js"></script>
+		<script src="js/services/file-upload-service.js"></script>
+		<script src="js/states/sign-in.js"></script>
+		<script src="js/states/record-detail.js"></script>
+		<script src="js/states/order.js"></script>
+		<script src="js/states/confirmation.js"></script>
+		<script src="js/states/abstract-records.js"></script>
+		<script src="js/states/records.js"></script>
+		<script src="js/states/register.js"></script>
+		<script src="js/states/profile.js"></script>
+	</body>
 </html>
